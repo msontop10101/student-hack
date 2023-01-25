@@ -2,3 +2,15 @@ input::placeholder{
     color: black;
     font-weight: bold;
 }
+.mobile {
+    display: none;
+}
+
+@media screen and (max-width:760px) {
+    .mobile {
+        display: block;
+    }
+    .desktop {
+        display: none
+    }
+}
