@@ -8,6 +8,7 @@ import logo from '../assets/school-hacks-logo.png'
 
 
 const Navigation = () => {
+  const [Open, setOpen] = useState(false)
   return (
     <>
       <nav class='flex flex-col md:flex-row justify-between bg-[#919191] px-8 py-4 items-center desktop'>
