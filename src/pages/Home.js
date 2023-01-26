@@ -34,7 +34,6 @@ const Home = () => {
           )}
         </Options>
 
-        {/* <div class='flex px-8 text-black font-bold items-center gap-4' style={{borderRadius: '20px', backgroundColor:'lightgray'}}><div><p>Matière</p></div><div><img src={arrowdown} alt="arrow" width={40} height={30} /></div></div> */}
       </div>
       </div>
     </div>

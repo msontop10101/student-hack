@@ -4,7 +4,7 @@ import {FaqData} from '../data'
 import SingleQuestion from '../components/Accordion'
 
 const Faq = () => {
-  const [questions, setQuestions] = useState(FaqData)
+  const [questions] = useState(FaqData)
   return (
     <>
       <div class='bg-[#B1A1ED] py-8'>

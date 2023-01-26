@@ -1,3 +1,25 @@
+export const Navigations = [
+    {
+        id: 1,
+        link: '/home',
+        nav: 'home'
+    },
+    {
+        id: 2,
+        link: '/qui',
+        nav: 'QUI SOMMES NOUS?'
+    },
+    {
+        id:3,
+        link: 'faq',
+        nav: 'FAQ'
+    },
+    {
+        id:4,
+        link: 'contact',
+        nav: 'Contact'
+    }
+]
 export const Niveau = [
     {
         id: 1,

@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import { Link } from 'react-router-dom'
 import { FaBars } from 'react-icons/fa'
-import { ImCross } from 'react-icons/im' 
-
+import { ImCross } from 'react-icons/im'
 import './Navigations.css'
 import logo from '../assets/school-hacks-logo.png'
 
@@ -17,7 +16,7 @@ const Navigation = () => {
         <Link to='/'><li>Home</li></Link>
         <Link to='/qui'><li>Qui Sommes Nous?</li></Link>
         <Link to='/faq'><li>FAQ</li></Link>
-        <Link to='/contact'><li>Contact</li></Link>
+        <Link to='/contact'><li>Contact</li></Link> 
       </ul>
     </nav>
 
