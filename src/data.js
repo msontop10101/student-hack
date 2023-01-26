@@ -58,6 +58,23 @@ export const Matière = [
         option: 'Langues étrangères'
     }
 ]
+export const FaqData = [
+    {
+        id: 1,
+        question: 'Quels types de services propose votre site web?',
+        answer: 'Nous proposons une variété de services pour aider les étudiants à réussir dans leurs études et dans leur carrière, tels que la réalisation de devoirs et de travaux scolaires, la correction de fautes d\'orthographe et de grammaire, des orientations professionnelles, des services de traduction automatique et de la rédaction de CV. '
+    },
+    {
+        id: 2,
+        question: 'Comment puis-je accéder aux services de votre site web?',
+        answer: 'Vous pouvez accéder à nos services en vous inscrivant sur notre site web et en créant un compte. Une fois que vous êtes connecté, vous pouvez utiliser nos services en utilisant notre bouton de recherche pour accéder aux réponses. '
+    },
+    {
+        id: 3,
+        question: 'Est-ce que je dois payer pour utiliser vos services?',
+        answer: 'Non, tous les services proposés sur notre site web sont entièrement gratuits pour les utilisateurs. Vous pouvez utiliser toutes les fonctionnalités de notre plateforme sans avoir à payer quoi que ce soit.'
+    }
+]
 
 
 
