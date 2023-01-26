@@ -23,6 +23,8 @@ const Navigation = () => {
 
     
     <nav class='flex flex-col justify-between bg-[#919191] px-8 py-2 items-center mobile'>
+      {/* <div class='flex justify-center'><img src={logo} alt="logo" width={50} height={50}/></div> */}
+      <div class='flex justify-between'>
       <div class='flex justify-center'><img src={logo} alt="logo" width={50} height={50}/></div>
       <button>
         {Open ? 
@@ -30,6 +32,7 @@ const Navigation = () => {
            <FaBars onClick={() => setOpen(true)} size='1.5em'/>
            }
     </button>
+      </div>
       <div class={Open ? 'block' : 'hidden'}>
         <ul class='flex flex-col text-center gap-10 uppercase py-6'>
         <Link to='/'><li onClick={() => setOpen(false)}>Home</li></Link>
