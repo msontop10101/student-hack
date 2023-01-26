@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+.no1 {
+  width: 40px;
+  height: 40px;
+}
+.no2 {
+  width: 40px;
+  height: 40px;
+}
+.no3 {
+  width: 40px;
+  height: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .no1 {
+    width: 90px;
+    height: 40px;
+  }
+  .no2 {
+    width: 70px;
+    height: 40px;
+  }
+  .no3 {
+    width: 90px;
+    height: 40px;
+  }
+  .logo-size {
+    width: 85px;
+    height: 70px;
+  }
+}

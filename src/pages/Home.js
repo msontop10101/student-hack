@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import '../App.css'
 import alert from '../assets/alert.png'
 import arrowdown from '../assets/arrowdown.png'
 import no1 from '../assets/no1.jpeg'
@@ -16,10 +17,10 @@ const Home = () => {
     <div>
           <div class='bg-[#B1A1ED] py-8'>
       <div >
-      <div class='flex justify-center'><img src={logo} alt="logo"/></div>
-      <div><p class="text-center text-3xl font-semibold">STUDENT HACKS, le devoir de faire les votres</p></div>
-      <div class='flex gap-4 justify-center mt-4 items-center'>
-        <FaSearch size='2em'/>
+      <div class='flex justify-center pb-5 md:pb-0'><img src={logo} alt="logo" class='logo-size'/></div>
+      <div><p class="text-center text-sm md:text-3xl font-semibold">STUDENT HACKS, le devoir de faire les votres</p></div>
+      <div class='flex flex-col md:flex-row gap-4 justify-center mt-4 items-center'>
+        <FaSearch size='2em' class='hidden md:block'/>
         <input style={{borderRadius: '20px', minWidth: '40%'}} class="py-2 px-8" placeholder="Ecris le sujet d'un exercice, une consigne, ou un extrait et laisse la magie opérer..."/>
         <div><img src={alert} width={30} height={30} alt='alert'/></div>
 
@@ -68,8 +69,8 @@ const Home = () => {
     </div>
     <div class='bg-[#B1A1ED] py-8' style={{minHeight:'200px'}}>
       <div >
-      <div class='flex gap-4 justify-center mt-4 items-center'>
-        <FaSearch size='2em'/>
+      <div class='flex flex-col md:flex-row gap-4 justify-center mt-4 items-center'>
+        <FaSearch size='2em' class='hidden md:block'/>
         <input style={{borderRadius: '20px', minWidth: '40%'}} class="py-2 px-8" placeholder="Ecris le sujet d'un exercice, une consigne, ou un extrait et laisse la magie opérer..."/>
         <div><img src={alert} width={30} height={30} alt='alert'/></div>
         <div class='flex flex-col relative'>
@@ -114,15 +115,15 @@ const Home = () => {
       <h1 class='text-2xl font-semibold text-center'>Gagner du temps simplement</h1>
       <div class='px-10 '>
       <div class="flex items-center py-5">
-        <div><img src={no1} alt="number1" width={40} height={40}/></div>
+        <div><img src={no1} alt="number1" class='no1'/></div>
         <div class='pl-4'><p> Recopier l'énoncé de votre exercice de façon claire et peut importe son sujet.</p></div>
       </div>
-      <div class="flex items-center pl-10">
-        <div><img src={no2} alt="number2" width={40} height={40}/></div>
+      <div class="flex items-center pl-0 md:pl-10">
+        <div><img src={no2} alt="number2" class='no2'/></div>
         <div class='pl-4'><p> Renseigner votre niveau et matières lorsque c'est possible</p></div>
       </div>
-      <div class="flex items-center pl-20 pt-5">
-        <div><img src={no3} alt="number2" width={40} height={40}/></div>
+      <div class="flex items-center pl-0 md:pl-20 pt-5">
+        <div><img src={no3} alt="number2" class='no3'/></div>
         <div class='pl-4'><p>Appuyez sur le buzzer et laissez nos experts consulter notre base de données</p></div>
       </div>
       </div>
