@@ -3,6 +3,7 @@ import ContactForm from '../components/Form'
 import logo from '../assets/school-hacks-logo.png'
 import { FaFacebook,FaTwitter,FaLinkedin } from 'react-icons/fa'
 import {FiMail} from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 
 const Contact = () => {
   return (
@@ -14,7 +15,7 @@ const Contact = () => {
           <div class='flex justify-center items-center w-full pb-5 md:pb-0'><img src={logo} alt="logo" class='logo-size'/></div>
           <p class='font-semibold text-lg my-4 text-center'>Soyez social avec nous</p>
           <div class='flex gap-5'>
-            <div><li><a href='https://web.facebook.com/people/Student-Hacks/100089567025384/'><FaFacebook size='3em' color='blue'/></a></li></div>
+            <div><a href='https://web.facebook.com/people/Student-Hacks/100089567025384/'><FaFacebook size='3em' color='blue'/></a></div>
             <div><a href='https://twitter.com/StudentHacks0'><FaTwitter size='3em' color='#00acee'/></a></div>
             <div><a href='/'><FaLinkedin size='3em' color='#0072b1'/></a></div>
             <div><a href='mailto:contact.studenthacks@gmail.com'><FiMail size='3em' color='black'/></a></div>

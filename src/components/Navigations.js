@@ -10,7 +10,7 @@ const Navigation = () => {
   const [Open, setOpen] = useState(false)
   return (
     <>
-      <nav class='flex flex-col md:flex-row justify-between bg-[#919191] px-8 py-4 items-center desktop'>
+      <nav class='flex flex-col md:flex-row justify-between bg-[#919191] px-8 py-4 items-center desktop navigations'>
       <div><img src={logo} alt="logo" width={50} height={50}/></div>
       <ul class='flex flex-col text-center md:flex-row gap-10 uppercase'>
         <Link to='/'><li>Home</li></Link>
@@ -21,7 +21,7 @@ const Navigation = () => {
     </nav>
 
     
-    <nav class='flex flex-col justify-between bg-[#919191] px-8 py-2 items-center mobile'>
+    <nav class='flex flex-col justify-between bg-[#919191] px-8 py-2 items-center mobile navigations'>
       <div class='flex justify-between'>
       <div class='flex justify-center'><img src={logo} alt="logo" width={50} height={50}/></div>
       <button>

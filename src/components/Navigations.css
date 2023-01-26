@@ -6,12 +6,12 @@ input::placeholder{
     display: none;
 }
 
-a {
+.navigations a {
     border-bottom: 4px solid #919191;
     padding: 4px;
 }
 
-a:hover {
+.navigations a:hover {
     border-bottom: 4px solid black
 }
 
