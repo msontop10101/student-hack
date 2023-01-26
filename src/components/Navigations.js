@@ -23,7 +23,6 @@ const Navigation = () => {
 
     
     <nav class='flex flex-col justify-between bg-[#919191] px-8 py-2 items-center mobile'>
-      {/* <div class='flex justify-center'><img src={logo} alt="logo" width={50} height={50}/></div> */}
       <div class='flex justify-between'>
       <div class='flex justify-center'><img src={logo} alt="logo" width={50} height={50}/></div>
       <button>

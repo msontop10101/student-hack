@@ -115,15 +115,15 @@ const Home = () => {
       <h1 class='text-2xl pt-4 md:pt-0 font-semibold text-center'>Gagner du temps simplement</h1>
       <div class='px-10 '>
       <div class="flex items-center py-5">
-        <div><img src={no1} alt="number1" class='no1'/></div>
+        <div><img src={no1} alt="number1" width={48} height={48}/></div>
         <div class='pl-4'><p> Recopier l'énoncé de votre exercice de façon claire et peut importe son sujet.</p></div>
       </div>
       <div class="flex items-center pl-0 md:pl-10">
-        <div><img src={no2} alt="number2" class='no2'/></div>
+        <div><img src={no2} alt="number2" width={43} height={43} /></div>
         <div class='pl-4'><p> Renseigner votre niveau et matières lorsque c'est possible</p></div>
       </div>
       <div class="flex items-center pl-0 md:pl-20 pt-5">
-        <div><img src={no3} alt="number2" class='no3'/></div>
+        <div><img src={no3} alt="number2" width={48} height={48}/></div>
         <div class='pl-4'><p>Appuyez sur le buzzer et laissez nos experts consulter notre base de données</p></div>
       </div>
       </div>
