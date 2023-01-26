@@ -16,7 +16,7 @@ const Faq = () => {
     <div class='my-5'>
       <div class='text-center font-bold text-2xl'><h1>Questions Fréquemment Posées</h1></div>
         <div class='flex justify-center mt-2 '>
-        <div class='w-[60%] p-8 rounded-lg'>
+        <div class='w-full md:w-[60%] p-8 rounded-lg'>
         {
           questions.map((question) => {
             return <SingleQuestion key={question.id} {...question}/>
