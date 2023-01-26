@@ -3,7 +3,6 @@ import ContactForm from '../components/Form'
 import logo from '../assets/school-hacks-logo.png'
 import { FaFacebook,FaTwitter,FaLinkedin } from 'react-icons/fa'
 import {FiMail} from 'react-icons/fi'
-import { Link } from 'react-router-dom'
 
 const Contact = () => {
   return (
