@@ -112,7 +112,7 @@ const Home = () => {
       </div>
     </div>
     <div>
-      <h1 class='text-2xl font-semibold text-center'>Gagner du temps simplement</h1>
+      <h1 class='text-2xl pt-4 md:pt-0 font-semibold text-center'>Gagner du temps simplement</h1>
       <div class='px-10 '>
       <div class="flex items-center py-5">
         <div><img src={no1} alt="number1" class='no1'/></div>
