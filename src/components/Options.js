@@ -6,7 +6,7 @@ const Options = ({title, children}) => {
   return (
     <>
         <div class='flex flex-col relative' onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
-            <div  class='flex px-8 text-black font-bold items-center gap-4' style={{borderRadius: '20px', backgroundColor:'lightgray'}}>
+            <div  class='flex px-8 text-black font-bold items-center gap-4' style={{borderRadius: '20px', border:'2px solid black' ,backgroundColor:'lightgray'}}>
                 <div><p>{title}</p></div>
                 <div class='cursor-pointer'><img  src={arrowdown} alt="arrow" width={40} height={30} /></div>
             </div>

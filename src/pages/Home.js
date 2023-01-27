@@ -10,13 +10,13 @@ const Home = () => {
   
   return (
     <div>
-          <div class='bg-[#B1A1ED] py-8'>
+          <div class='bg-[#B1A1ED] py-8' style={{borderBottom:'2px solid black'}}>
       <div >
       <div class='flex justify-center pb-5 md:pb-0'><img src={logo} alt="logo" class='logo-size'/></div>
       <div><p class="text-center text-sm md:text-3xl font-semibold py-0 md:py-2">STUDENT HACKS, le devoir de faire les votres</p></div>
       <div class='flex flex-col md:flex-row gap-4 justify-center mt-4 items-center'>
         <FaSearch size='2em' class='hidden md:block'/>
-        <input style={{borderRadius: '20px', minWidth: '40%'}} class="py-2 px-8" placeholder="Ecris le sujet d'un exercice, une consigne, ou un extrait et laisse la magie opérer..."/>
+        <input style={{borderRadius: '20px', border:'2px solid black' ,minWidth: '40%'}} class="py-2 px-8" placeholder="Ecris le sujet d'un exercice, une consigne, ou un extrait et laisse la magie opérer..."/>
         <div><img src={alert} width={30} height={30} alt='alert'/></div>
 
         <Options title='Niveau'>
