@@ -8,6 +8,7 @@ import Contact from './pages/Contact';
 import Footer from './components/Footer';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Chat from './pages/Chat';
 
 
 
@@ -23,6 +24,7 @@ const App = () => {
         <Route path='/contact' element={<Contact/>}>Contact</Route>
         <Route path='/login' element={<Login/>}>Login</Route>
         <Route path='/signup' element={<Signup/>}>Signup</Route>
+        <Route path='/chat' element={<Chat/>}>Chat</Route>
       </Routes>
       <Footer/>
     </>

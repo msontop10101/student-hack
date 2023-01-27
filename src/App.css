@@ -72,6 +72,15 @@ body, html {
   position: relative;
 }
 
+.chat li {
+  cursor: pointer;
+  padding: 10px 0px 10px 0px
+}
+.chat li:hover {
+  /* background-color: #B1A1ED; */
+  background-color: #624cb0e3;
+}
+
 @media screen and (max-width: 768px) {
   .number {
     background-color: black;
