@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Qui from './pages/Qui';
 import Faq from './pages/Faq';
 import Contact from './pages/Contact';
+import Footer from './components/Footer';
 
 
 
@@ -19,6 +20,7 @@ const App = () => {
         <Route path='/faq' element={<Faq/>}>FAQ</Route>
         <Route path='/contact' element={<Contact/>}>Contact</Route>
       </Routes>
+      <Footer/>
     </>
   )
 }

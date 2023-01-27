@@ -1,6 +1,6 @@
 input::placeholder{
     color: black;
-    font-weight: bold;
+    font-weight: 400;
 }
 .mobile {
     display: none;
@@ -22,5 +22,10 @@ input::placeholder{
     }
     .desktop {
         display: none
+    }
+    input::placeholder{
+        color: black;
+        font-weight: 500;
+        font-size: small;
     }
 }
