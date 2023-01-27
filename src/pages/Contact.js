@@ -1,7 +1,7 @@
 import React from 'react'
 import ContactForm from '../components/Form'
 import logo from '../assets/school-hacks-logo.png'
-import { FaFacebook,FaTwitter,FaLinkedin } from 'react-icons/fa'
+import { FaFacebook,FaTwitter,FaTiktok } from 'react-icons/fa'
 import {FiMail} from 'react-icons/fi'
 
 const Contact = () => {
@@ -16,7 +16,7 @@ const Contact = () => {
           <div class='flex gap-5'>
             <div><a href='https://web.facebook.com/people/Student-Hacks/100089567025384/'><FaFacebook size='3em' color='blue'/></a></div>
             <div><a href='https://twitter.com/StudentHacks0'><FaTwitter size='3em' color='#00acee'/></a></div>
-            <div><a href='/'><FaLinkedin size='3em' color='#0072b1'/></a></div>
+            <div><a href='https://www.tiktok.com/@studenthacks.ia'><FaTiktok size='3em' color='#0072b1'/></a></div>
             <div><a href='mailto:contact.studenthacks@gmail.com'><FiMail size='3em' color='black'/></a></div>
           </div>
           </div>

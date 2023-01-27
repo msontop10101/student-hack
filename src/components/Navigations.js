@@ -17,6 +17,8 @@ const Navigation = () => {
         <Link to='/qui'><li>Qui Sommes Nous?</li></Link>
         <Link to='/faq'><li>FAQ</li></Link>
         <Link to='/contact'><li>Contact</li></Link> 
+        <Link to='/login'><li>Login</li></Link> 
+        <Link to='/signup'><li>Signup</li></Link> 
       </ul>
     </nav>
 
@@ -37,6 +39,8 @@ const Navigation = () => {
         <Link to='/qui'><li onClick={() => setOpen(false)}>Qui Sommes Nous?</li></Link>
         <Link to='/faq'><li onClick={() => setOpen(false)}>FAQ</li></Link>
         <Link to='/contact'><li onClick={() => setOpen(false)}>Contact</li></Link>
+        <Link to='/login'><li onClick={() => setOpen(false)}>Login</li></Link>
+        <Link to='/signup'><li onClick={() => setOpen(false)}>Signup</li></Link>
       </ul>
       </div>
     </nav>

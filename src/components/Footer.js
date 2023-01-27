@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaFacebook,FaTwitter,FaLinkedin } from 'react-icons/fa'
+import { FaFacebook,FaTwitter,FaTiktok } from 'react-icons/fa'
 import {FiMail} from 'react-icons/fi'
 import logo from '../assets/school-hacks-logo.png'
 
@@ -12,7 +12,7 @@ const Footer = () => {
             <div class='flex gap-5 md:gap-10 mt-4 '>
                 <div><a href='https://web.facebook.com/people/Student-Hacks/100089567025384/'><FaFacebook size='2em'/></a></div>
                 <div><a href='https://twitter.com/StudentHacks0'><FaTwitter size='2em'/></a></div>
-                <div><a href='/'><FaLinkedin size='2em'/></a></div>
+                <div><a href='https://www.tiktok.com/@studenthacks.ia'><FaTiktok size='2em'/></a></div>
                 <div><a href='mailto:contact.studenthacks@gmail.com'><FiMail size='2em'/></a></div>
             </div>
         </div>

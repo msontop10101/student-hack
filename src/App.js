@@ -6,6 +6,8 @@ import Qui from './pages/Qui';
 import Faq from './pages/Faq';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 
 
@@ -19,6 +21,8 @@ const App = () => {
         <Route path='/qui' element={<Qui/>}>Qui Sommes Nous?</Route>
         <Route path='/faq' element={<Faq/>}>FAQ</Route>
         <Route path='/contact' element={<Contact/>}>Contact</Route>
+        <Route path='/login' element={<Login/>}>Login</Route>
+        <Route path='/signup' element={<Signup/>}>Signup</Route>
       </Routes>
       <Footer/>
     </>
