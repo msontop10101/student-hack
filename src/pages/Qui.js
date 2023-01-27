@@ -5,7 +5,7 @@ const Qui = () => {
   return (
     <>
       <div class='flex flex-col md:flex-row w-[100vw] md:w-full h-[90vh]'>
-        <div class='bg-[#B1A1ED] w-full md:w-[40%] h-[30%] md:h-full flex justify-center items-center'>
+        <div class='bg-[#B1A1ED] w-full md:w-[40%] h-[30%] px-10 md:h-full flex justify-center items-center'>
           <div>
           <div class='flex justify-center  pb-5 md:pb-0'><img src={logo} alt="logo" class='logo-size'/></div>
           <div><p class="text-center text-sm md:text-3xl font-semibold py-0 md:py-2">STUDENT HACKS, le devoir de faire les votres</p></div>
