@@ -26,12 +26,6 @@ const Contact = () => {
             <h1 class='font-bold text-2xl text-center'>NOUS CONTACTER</h1>
             <div class='flex justify-center'><ContactForm/></div>
             </div>
-            <div class='flex md:hidden gap-5 mt-4 '>
-            <div><a href='https://web.facebook.com/people/Student-Hacks/100089567025384/'><FaFacebook size='3em'/></a></div>
-            <div><a href='https://twitter.com/StudentHacks0'><FaTwitter size='3em'/></a></div>
-            <div><a href='/'><FaLinkedin size='3em'/></a></div>
-            <div><a href='mailto:contact.studenthacks@gmail.com'><FiMail size='3em'/></a></div>
-          </div>
           </div>
         </div>
       </div>
