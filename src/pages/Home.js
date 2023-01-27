@@ -58,7 +58,7 @@ const Home = () => {
     <div class='bg-[#919191] py-8' style={{minHeight:'200px', borderBottom:'2px solid black', borderTop:'2px solid black'}}>
       <div >
       <div class='flex justify-center pb-5 md:pb-0'><img src={logo} alt="logo" class='logo-size'/></div>
-      <div><p class="text-center text-sm md:text-3xl font-semibold py-0 md:py-2">Besoind'unCV?</p></div>
+      <div><p class="text-center text-sm md:text-3xl font-semibold py-0 md:py-2">Besoin D’un CV ?</p></div>
       <div class='flex flex-col md:flex-row gap-4 justify-center mt-4 items-center'>
         <FaSearch size='2em' class='hidden md:block'/>
         <input style={{borderRadius: '20px', border:'2px solid black' ,minWidth: '40%'}} class="py-2 px-8" placeholder="Décrivez vous, ainsi que votre parcours et laisser la magie opérer"/>
