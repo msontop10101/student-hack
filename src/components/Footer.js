@@ -6,7 +6,7 @@ import logo from '../assets/school-hacks-logo.png'
 const Footer = () => {
   return (
     <>
-        <div class='bg-[#919191] w-full flex items-center justify-between p-4'>
+        <div class='bg-[#919191] w-full flex items-center justify-between p-4' style={{borderTop:'2px solid black', borderBottom:'2px solid black'}}>
             <div class='flex gap-5 items-center'><img src={logo} alt="logo" class='mb-[-10px]' width={50} height={50}/><li class='hidden md:block font-semibold'><a href='/'>studenthacks.com</a></li></div>
             <div class='hidden md:block'><p class='italic'>&#169; copyright 2023 studenthacks</p></div>
             <div class='flex gap-5 md:gap-10 mt-4 '>
