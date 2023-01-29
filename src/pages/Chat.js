@@ -24,10 +24,10 @@ const Chat = () => {
                         </ul>
                     </div>
                 </div>
-                <div class={darkMode ? 'w-full md:w-[80%] bg-black flex flex-col justify-between items-center py-4' : 'w-full md:w-[80%] bg-white flex flex-col justify-between items-center py-4'}>
+                <div class={darkMode ? 'w-full md:w-[80%] bg-black flex flex-col justify-between items-center py-4' : 'w-full md:w-[80%] bg-white flex flex-col justify-between items-center py-4 relative'}>
                     <div><h1 class={darkMode ? 'text-2xl font-bold text-center text-white' : 'text-2xl font-bold text-center'}>Student Hacks</h1></div>
                     <div class='w-[80%]'>
-                    <div class='chat-box text-white absolute bottom-40'>
+                    <div class='z-10 chat-box text-white absolute bottom-40'>
                         <div class='chat-log flex justify-center'>
                             <div class='chat-message w-[80%] pt-5 flex flex-col gap-5'>
                                 <div class='flex justify-end'>
