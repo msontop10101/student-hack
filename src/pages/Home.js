@@ -53,7 +53,6 @@ const Home = () => {
       </div>
     </div>
         {/* ----------------SECTION2END---------------- */}
-
     {/* --------------------SECTION3--------------------- */}
     <div class='bg-[#919191] py-8' style={{minHeight:'200px', borderBottom:'2px solid black', borderTop:'2px solid black'}}>
       <div >

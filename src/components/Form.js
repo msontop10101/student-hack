@@ -3,8 +3,10 @@ import { useFormik } from 'formik';
 import { FaUserAlt } from 'react-icons/fa'
 import { AiFillUnlock, AiOutlineMail } from 'react-icons/ai'
 import { MdOutlineVisibility, MdOutlineVisibilityOff } from 'react-icons/md'
-
+import { useAuthContext } from '../context/auth/auth';
+import { useSignupContext } from '../context/auth/signup';
 const ContactForm = () => {
+
   // Note that we have to initialize ALL of fields with values. These
   // could come from props, but since we don’t want to prefill this form,
   // we just use an empty string. If we don’t do this, React will yell
@@ -87,6 +89,8 @@ export default ContactForm;
 
 
 export const LoginForm = () => {
+  const { login, isAuth } = useAuthContext()
+  console.log(isAuth, login)
     const [visible, setVisible] = useState(false)
       // Note that we have to initialize ALL of fields with values. These
   // could come from props, but since we don’t want to prefill this form,
@@ -98,9 +102,13 @@ export const LoginForm = () => {
       password: '',
     },
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+      // alert(JSON.stringify(values, null, 2));
+      login(values)
     },
   });
+  
+
+
   return (
     <div class='w-[100%]'>
       <form onSubmit={formik.handleSubmit}>
@@ -148,6 +156,9 @@ export const LoginForm = () => {
 
 export const SignupForm = () => {
     const [visible, setVisible] = useState(false)
+    const {signup} = useSignupContext()
+    // const {}
+
       // Note that we have to initialize ALL of fields with values. These
   // could come from props, but since we don’t want to prefill this form,
   // we just use an empty string. If we don’t do this, React will yell
@@ -161,7 +172,8 @@ export const SignupForm = () => {
       confirmpassword: '',
     },
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+      // alert(JSON.stringify(values, null, 2));
+      signup(values)
     },
   });
   return (

@@ -4,6 +4,10 @@ import logo from '../assets/school-hacks-logo.png'
 import { BiLogIn } from 'react-icons/bi'
 
 const Login = () => {
+  
+
+
+
   return (
     <>
       <div class='h-[93vh] md:h-[90vh] flex items-center justify-center'>
