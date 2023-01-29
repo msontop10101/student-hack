@@ -47,8 +47,8 @@ const ContactForm = () => {
         style={{height: '50px', borderRadius:'10px'}}
       />
       </div>
-      <div class='flex flex-col w-full md:w-[45%]'>
-      <label class='font-bold mb-1 text-lg' htmlFor="name">pas-de-telephone</label>
+      <div class='flex flex-col w-full md:w-[45%] mt-4'>
+      <label class='font-bold mb-1 text-lg' htmlFor="name">Phone</label>
       <input
         id="phone"
         name="phone"
@@ -74,7 +74,7 @@ const ContactForm = () => {
       </div>
 
       <div class='flex justify-center'>
-      <button class='bg-white h-[50px] font-bold my-10 p-4 shadow-md' style={{borderRadius:'10px'}} type="submit">NONS VOUS PALIEREE</button>
+      <button class='bg-white h-[50px] w-[100%] font-bold my-10 p-4 shadow-md' style={{borderRadius:'10px'}} type="submit">Send</button>
       </div>
     </form>
     </div>
