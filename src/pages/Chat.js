@@ -27,7 +27,7 @@ const Chat = () => {
 
     return (
         <>
-            {/* {!isAuth? <Navigate to={'/login'} />:null} */}
+            {!isAuth? <Navigate to={'/login'} />:null}
             <div class='flex h-[90vh]'>
                 <div class='w-[20%] hidden md:flex bg-[#919191] flex-col justify-between'>
                     <div class='p-2' style={{ borderBottom: '2px solid black'}}>

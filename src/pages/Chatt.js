@@ -123,7 +123,7 @@ const Chatt = () => {
 
     return (
         <>
-            {/* {!isAuth ? <Navigate to={'/login'} /> : null} */}
+            {!isAuth ? <Navigate to={'/login'} /> : null}
             <div style={{ backgroundColor: 'gray', height: '100vh', width: '100vw', position: 'relative' }}>
                 <div className='chatbox absolute bottom-0'>
                     <div className='chat-log'>
