@@ -12,10 +12,10 @@ root.render(
   <React.StrictMode>
     <AuthProvider>
       <SignUpProvider>
-    <Router>
-    <App />
-    </Router>
-    </SignUpProvider>
+        <Router>
+          <App />
+        </Router>
+      </SignUpProvider>
     </AuthProvider>
   </React.StrictMode>
 );

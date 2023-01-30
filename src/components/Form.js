@@ -90,7 +90,7 @@ export default ContactForm;
 
 export const LoginForm = () => {
   const { login, isAuth } = useAuthContext()
-  console.log(isAuth, login)
+  console.log(isAuth, login) 
     const [visible, setVisible] = useState(false)
       // Note that we have to initialize ALL of fields with values. These
   // could come from props, but since we don’t want to prefill this form,
