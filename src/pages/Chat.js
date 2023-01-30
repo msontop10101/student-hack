@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { FaPlus } from 'react-icons/fa'
 import { RiDeleteBin6Line } from 'react-icons/ri'
 import { BsMoon } from 'react-icons/bs'
@@ -27,7 +27,7 @@ const Chat = () => {
 
     return (
         <>
-            {!isAuth? <Navigate to={'/login'} />:null}
+            {/* {!isAuth? <Navigate to={'/login'} />:null} */}
             <div class='flex h-[90vh]'>
                 <div class='w-[20%] hidden md:flex bg-[#919191] flex-col justify-between'>
                     <div class='p-2' style={{ borderBottom: '2px solid black'}}>
@@ -47,7 +47,7 @@ const Chat = () => {
                     <div class='w-[80%]'>
                     <div class='z-10 chat-box text-white absolute bottom-40'>
                         <div class='chat-log flex justify-center'>
-                            <div class='chat-message w-[80%] pt-5 flex flex-col gap-5'>
+                            <div class='chat-messagej w-[80%] pt-5 flex flex-col gap-5'>
                                 <div class='flex justify-end'>
                                     <div class='avater bg-[#9869e9] w-[80%] p-4 rounded-3xl'>
                                         <p>Scrivimi 10 articoli sulla guerra in

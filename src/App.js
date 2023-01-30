@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Chat from './pages/Chat';
+import Chatt from './pages/Chatt';
 import { useAuthContext } from './context/auth/auth';
 
 
@@ -26,6 +27,7 @@ const App = () => {
         <Route path='/login' element={<Login/>}>Login</Route>
         <Route path='/signup' element={<Signup/>}>Signup</Route>
         <Route path='/chat' element={<Chat/>}>Chat</Route>
+        <Route path='/chatt' element={<Chatt/>}>Chatt</Route>
       </Routes>
       <Footer/>
     </>
