@@ -2,8 +2,11 @@ import React from 'react'
 import { SignupForm } from '../components/Form'
 import logo from '../assets/school-hacks-logo.png'
 import { BiLogIn } from 'react-icons/bi'
+import { useNavigate } from 'react-router-dom'
 
 const Signup = () => {
+
+  const navigate = useNavigate()
   return (
     <>
       <div class='h-[93vh] md:h-[90vh] flex items-center justify-center'>
@@ -20,7 +23,7 @@ const Signup = () => {
             <div class='flex justify-center'>
                 <div class='flex md:hidden items-center gap-2'><h1 class='font-bold text-2xl text-center'>S'INSCRIRE</h1><div><BiLogIn size='2em'/></div></div>
             </div>
-            <div class='flex justify-center'><SignupForm/></div>
+            <div class='flex justify-center'><SignupForm onSignUp={()=>navigate("/chat")}/></div>
             </div>
           </div>
         </div>

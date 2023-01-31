@@ -170,9 +170,11 @@ export const LoginForm = ({onLogin}) => {
   );
 }
 
-export const SignupForm = () => {
+export const SignupForm = ({onSignUp}) => {
     const [visible, setVisible] = useState(false)
-    const {signup} = useSignupContext()
+    const [loading, setLoading] = useState(false)
+    // const {signup} = useSignupContext()
+    const {signUpUser} = useContext(AppContext)
     // const {}
 
       // Note that we have to initialize ALL of fields with values. These
@@ -187,9 +189,22 @@ export const SignupForm = () => {
       password: '',
       confirmpassword: '',
     },
-    onSubmit: values => {
+    onSubmit: data => {
       // alert(JSON.stringify(values, null, 2));
-      signup(values)
+      // signup(values)
+      setLoading(true);
+      signUpUser(data)
+      .then(()=>{
+        // Navigate out
+        console.log("Signed up!")
+        onSignUp();
+      })
+      .catch(err=>{
+        console.log(err)
+        setLoading(false);
+      })
+
+
     },
   });
   return (

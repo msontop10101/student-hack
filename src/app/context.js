@@ -37,6 +37,7 @@ export const AppContextProvider = ({children}) =>{
             ...contextState,
             logInUser: async (authData)=>{
                 console.log("Sign in user:", authData);
+                // 
             },
             signUpUser: async (userData)=>{
                 console.log("Sign up user:", userData);
