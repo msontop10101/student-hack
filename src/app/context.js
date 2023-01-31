@@ -1,4 +1,7 @@
 import React, {createContext, useMemo, useReducer} from 'react';
+import axios from 'axios';
+
+const baseUrl = process.env.REACT_APP_SERVER_URL || '';
 
 const AppContext = createContext();
 
@@ -37,10 +40,64 @@ export const AppContextProvider = ({children}) =>{
             ...contextState,
             logInUser: async (authData)=>{
                 console.log("Sign in user:", authData);
-                // 
+
+                let res;
+
+                try{
+                    res = await axios({
+                        method: "POST",
+                        url: `${baseUrl}/api/auth/login`,
+                        data: authData,
+                    })
+                }catch(err){
+                    // console.log(err)
+                    const {response} = err;
+
+                    if (!response){
+                        throw(
+                            {
+                                message:"Could not authenticate"
+                            }
+                        )
+                    }
+
+                    const {error} = response.data;
+
+                    throw(error);
+                }
+
+
+                console.log(res);
             },
             signUpUser: async (userData)=>{
                 console.log("Sign up user:", userData);
+                let res;
+
+                try{
+                    res = await axios({
+                        method: "POST",
+                        url: `${baseUrl}/api/auth/register`,
+                        data: userData,
+                    })
+                }catch(err){
+                    // console.log(err)
+                    const {response} = err;
+
+                    if (!response){
+                        throw(
+                            {
+                                message:"Could not create account"
+                            }
+                        )
+                    }
+
+                    const {error} = response.data;
+
+                    throw(error);
+                }
+
+
+                console.log(res);
             },
         }
     ))
