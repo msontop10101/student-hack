@@ -29,7 +29,7 @@ export const AppContextProvider = ({children}) =>{
                 return {...previousState}
         }
     }
-
+    //eslint-disable-next-line
     const [contextState, dispatch] = useReducer(reducer, initialState);
 
 
@@ -38,6 +38,7 @@ export const AppContextProvider = ({children}) =>{
     const contextData = useMemo(()=>(
         {
             ...contextState,
+            isAuthenticated: Boolean(contextState.user),
             logInUser: async (authData)=>{
                 console.log("Sign in user:", authData);
 
@@ -54,6 +55,7 @@ export const AppContextProvider = ({children}) =>{
                     const {response} = err;
 
                     if (!response){
+                        //eslint-disable-next-line
                         throw(
                             {
                                 message:"Could not authenticate"
@@ -84,6 +86,7 @@ export const AppContextProvider = ({children}) =>{
                     const {response} = err;
 
                     if (!response){
+                        //eslint-disable-next-line
                         throw(
                             {
                                 message:"Could not create account"
@@ -100,7 +103,7 @@ export const AppContextProvider = ({children}) =>{
                 console.log(res);
             },
         }
-    ))
+    ), [contextState])
 
     return (
         <AppContext.Provider value={contextData}>

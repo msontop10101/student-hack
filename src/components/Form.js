@@ -3,11 +3,9 @@ import { useFormik } from 'formik';
 import { FaUserAlt } from 'react-icons/fa'
 import { AiFillUnlock, AiOutlineMail } from 'react-icons/ai'
 import { MdOutlineVisibility, MdOutlineVisibilityOff } from 'react-icons/md'
-import { useAuthContext } from '../context/auth/auth';
-import { useSignupContext } from '../context/auth/signup';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios'
 import AppContext from '../app/context';
+
+
 const ContactForm = () => {
 
   // Note that we have to initialize ALL of fields with values. These
@@ -96,6 +94,7 @@ export const LoginForm = ({onLogin}) => {
   // console.log(isAuth, login) 
     const {logInUser} = useContext(AppContext);
     const [visible, setVisible] = useState(false);
+    //eslint-disable-next-line
     const [loading, setLoading] = useState(false);
       // Note that we have to initialize ALL of fields with values. These
   // could come from props, but since we don’t want to prefill this form,
@@ -171,8 +170,9 @@ export const LoginForm = ({onLogin}) => {
 }
 
 export const SignupForm = ({onSignUp}) => {
-    const [visible, setVisible] = useState(false)
-    const [loading, setLoading] = useState(false)
+    const [visible, setVisible] = useState(false);
+    //eslint-disable-next-line
+    const [loading, setLoading] = useState(false);
     // const {signup} = useSignupContext()
     const {signUpUser} = useContext(AppContext)
     // const {}

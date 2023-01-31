@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import '../App.css'
-import { useAuthContext } from '../context/auth/auth'
-import { Navigate, redirect, useNavigate } from 'react-router-dom'
-import { MdOutlineLogout, MdSend } from 'react-icons/md'
+import { MdSend } from 'react-icons/md'
 
 const Chatt = () => {
-    const { isAuth } = useAuthContext()
+
     const [input, setInput] = useState('')
     const [chatLog, setChatLog] = useState([
         {
@@ -20,20 +18,19 @@ const Chatt = () => {
     ])
     async function handleSubmit(e) {
         e.preventDefault();
-        await setChatLog([...chatLog, { user: 'me', message: `${input}` }])
-        await setInput("")
+        setChatLog((p)=>[...p, { user: 'me', message: `${input}` }])
+        setInput("")
         const response = await fetch('https://09bc-102-89-23-48.eu.ngrok.io/api/chat', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                message: chatLog.map((message) => message.message).
-                    join("")
+                message: chatLog.map((message) => message.message).join("")
             })
         });
         const data = await response.json()
-        await setChatLog([...chatLog, { user: "gpt", message: `${data.message}` }])
+        setChatLog(p=>[...p, { user: "gpt", message: `${data.message}` }])
         console.log(data.message)
     }
 
