@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useContext, useState} from 'react';
 import { useFormik } from 'formik';
 import { FaUserAlt } from 'react-icons/fa'
 import { AiFillUnlock, AiOutlineMail } from 'react-icons/ai'
@@ -7,6 +7,7 @@ import { useAuthContext } from '../context/auth/auth';
 import { useSignupContext } from '../context/auth/signup';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import AppContext from '../app/context';
 const ContactForm = () => {
 
   // Note that we have to initialize ALL of fields with values. These
@@ -90,10 +91,12 @@ export default ContactForm;
 
 
 
-export const LoginForm = () => {
-  const { login, isAuth } = useAuthContext()
-  console.log(isAuth, login) 
-    const [visible, setVisible] = useState(false)
+export const LoginForm = ({onLogin}) => {
+  // const { login, isAuth } = useAuthContext()
+  // console.log(isAuth, login) 
+    const {logInUser} = useContext(AppContext);
+    const [visible, setVisible] = useState(false);
+    const [loading, setLoading] = useState(false);
       // Note that we have to initialize ALL of fields with values. These
   // could come from props, but since we don’t want to prefill this form,
   // we just use an empty string. If we don’t do this, React will yell
@@ -103,9 +106,21 @@ export const LoginForm = () => {
       email: '',
       password: '',
     },
-    onSubmit: values => {
+    onSubmit: (data) => {
       // alert(JSON.stringify(values, null, 2));
-      login(values)
+      // login(values)
+      setLoading(true);
+      logInUser(data)
+      .then(()=>{
+        // Navigate out
+        console.log("Logged in user!")
+        onLogin();
+      })
+      .catch(err=>{
+        console.log(err)
+        setLoading(false);
+      })
+      // console.log(values)
     },
   });
   

@@ -2,11 +2,11 @@ import React from 'react'
 import { LoginForm } from '../components/Form'
 import logo from '../assets/school-hacks-logo.png'
 import { BiLogIn } from 'react-icons/bi'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
-  
 
-
+  const navigate = useNavigate();
 
   return (
     <>
@@ -24,7 +24,7 @@ const Login = () => {
             <div class='flex justify-center'>
                 <div class='flex items-center gap-2'><h1 class='font-bold text-2xl text-center'>Connexion</h1><div><BiLogIn size='2em'/></div></div>
             </div>
-            <div class='flex justify-center'><LoginForm/></div>
+            <div class='flex justify-center'><LoginForm onLogin={()=>navigate("/chat")}/></div>
             </div>
           </div>
         </div>
