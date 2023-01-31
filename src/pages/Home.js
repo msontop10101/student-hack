@@ -13,7 +13,7 @@ const Home = () => {
   console.log(isAuthenticated)
   return (
     <div>
-          <div class='bg-[#B1A1ED] py-8' style={{borderBottom:'2px solid black'}}>
+      <div class='bg-[#B1A1ED] py-8' style={{borderBottom:'2px solid black'}}>
       <div >
       <div class='flex justify-center pb-5 md:pb-0'><img src={logo} alt="logo" class='logo-size'/></div>
       <div><p class="text-center text-sm md:text-3xl font-semibold py-0 md:py-2">STUDENT HACKS, le devoir de faire les votres</p></div>

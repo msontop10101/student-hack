@@ -20,7 +20,7 @@ const Chatt = () => {
         e.preventDefault();
         setChatLog((p)=>[...p, { user: 'me', message: `${input}` }])
         setInput("")
-        const response = await fetch('https://09bc-102-89-23-48.eu.ngrok.io/api/chat', {
+        const response = await fetch('https://ba40-197-210-76-184.eu.ngrok.io/api/chat', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -30,8 +30,8 @@ const Chatt = () => {
             })
         });
         const data = await response.json()
-        setChatLog(p=>[...p, { user: "gpt", message: `${data.message}` }])
-        console.log(data.message)
+        setChatLog(p=>[...p, { user: "gpt", message: `${data.data.message}` }])
+        console.log(data.data)
     }
 
     return (
@@ -52,7 +52,7 @@ const Chatt = () => {
                             type='text'
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
-                            style={{ border: '2px solid gray', width: '90%', height: '50px', borderRadius: '10px', outline: 'none' }}
+                            style={{ border: '', padding:'0px 10px 0px 10px', width: '90%', height: '50px', borderRadius: '10px', outline: 'none' }}
                         />
                         <div class='cursor-pointer'><MdSend color='black' size='1.6rem'/></div>
                     </div>

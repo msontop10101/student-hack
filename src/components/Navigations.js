@@ -1,13 +1,16 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import { Link } from 'react-router-dom'
 import { FaBars } from 'react-icons/fa'
 import { ImCross } from 'react-icons/im'
 import './Navigations.css'
 import logo from '../assets/school-hacks-logo.png'
+import AppContext from '../app/context'
 
 
 const Navigation = () => {
   const [Open, setOpen] = useState(false)
+  const {isAuthenticated} = useContext(AppContext)
+
   return (
     <>
       <nav class='z-50 flex flex-col md:flex-row justify-between bg-[#919191] px-8 py-4 items-center desktop navigations' style={{borderBottom: '2px solid black'}}>
@@ -17,8 +20,11 @@ const Navigation = () => {
         <Link to='/qui'><li>Qui Sommes Nous?</li></Link>
         <Link to='/faq'><li>FAQ</li></Link>
         <Link to='/contact'><li>Contact</li></Link> 
+        <div class={isAuthenticated ? 'hidden' : 'block'}>
         <Link to='/login'><li>connexion</li></Link> 
         <Link to='/signup'><li>S'inscrire</li></Link> 
+        </div>
+        {/* <Link to='/login' onClick={() => isAuthenticated == false}><li>Se déconnecter</li></Link> */}
       </ul>
     </nav>
 
@@ -39,8 +45,10 @@ const Navigation = () => {
         <Link to='/qui'><li onClick={() => setOpen(false)}>Qui Sommes Nous?</li></Link>
         <Link to='/faq'><li onClick={() => setOpen(false)}>FAQ</li></Link>
         <Link to='/contact'><li onClick={() => setOpen(false)}>Contact</li></Link>
+        <div class={isAuthenticated ? 'hidden' : 'block'}>
         <Link to='/login'><li onClick={() => setOpen(false)}>connexion</li></Link>
         <Link to='/signup'><li onClick={() => setOpen(false)}>S'inscrire</li></Link>
+        </div>
       </ul>
       </div>
     </nav>
