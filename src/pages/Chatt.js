@@ -92,14 +92,14 @@ const Chatt = () => {
     const { isAuth } = useAuthContext()
     const [input, setInput] = useState('')
     const [chatLog, setChatLog] = useState([
-        // {
-        //   user: 'me',
-        //   message: 'I want to use chatgpt today'
-        // },
-        // {
-        //   user: 'gpt',
-        //   message: 'How can i help you?'
-        // }
+        {
+          user: 'me',
+          message: 'I want to use chatgpt today'
+        },
+        {
+          user: 'gpt',
+          message: 'How can i help you?'
+        }
 
     ])
     async function handleSubmit(e) {
@@ -124,8 +124,8 @@ const Chatt = () => {
     return (
         <>
             {!isAuth ? <Navigate to={'/login'} /> : null}
-            <div style={{ backgroundColor: 'gray', height: '100vh', width: '100vw', position: 'relative' }}>
-                <div className='chatbox absolute bottom-0'>
+            <div style={{ backgroundColor: 'white', height: '100vh', width: '100vw', position: 'relative' }}>
+                <div className='chatbox absolute bottom-40'>
                     <div className='chat-log'>
                         {chatLog.map((message, index) => (
                             <ChatMessage key={index} message={message} />
@@ -133,12 +133,12 @@ const Chatt = () => {
 
                     </div>
                 </div>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className='flex justify-center'>
                     <input
                         type='text'
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
-                        style={{ position: 'absolute', bottom: '0px' }}
+                        style={{ position: 'absolute', bottom: '20px', border:'2px solid gray', width:'80%', height:'50px', borderRadius:'10px'  }}
                     />
                 </form>
             </div>
@@ -148,11 +148,13 @@ const Chatt = () => {
 };
 const ChatMessage = ({ message }) => {
     return (
-        <div className={`chat-message ${message.user === 'gpt' && 'chatgpt'}`}>
-            <div className={`avater ${message.user === 'gpt' && 'chatgpt'}`}>
-                {message.user === 'gpt' && 'GPT'}
-            </div>
+        <div>
+            <div className={`chat-message ${message.user === 'gpt' && 'chatgpt'}`}>
+            {/* <div className={`avater ${message.user === 'gpt' && 'chatgpt'}`}> */}
+                {message.user === 'gpt' && ''}
+            {/* </div> */}
             <div className='message'>{message.message}</div>
+        </div>
         </div>
     )
 }
