@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import '../App.css'
 import alert from '../assets/alert.png'
 import { FaSearch } from 'react-icons/fa'
 import logo from '../assets/school-hacks-logo.png'
 import Options from '../components/Options'
 import { Niveau, Matière } from '../data'
+import AppContext from '../app/context'
 
 const Home = () => {
+  const {isAuthenticated} = useContext(AppContext)
   
+  console.log(isAuthenticated)
   return (
     <div>
           <div class='bg-[#B1A1ED] py-8' style={{borderBottom:'2px solid black'}}>

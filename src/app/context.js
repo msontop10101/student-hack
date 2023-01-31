@@ -1,9 +1,10 @@
-import React, {createContext, useMemo, useReducer} from 'react';
+import React, {createContext, useEffect, useMemo, useReducer} from 'react';
 import axios from 'axios';
 
 const baseUrl = process.env.REACT_APP_SERVER_URL || '';
 
 const AppContext = createContext();
+const userStorageKey = "userTKN"
 
 export default AppContext;
 
@@ -32,8 +33,36 @@ export const AppContextProvider = ({children}) =>{
     //eslint-disable-next-line
     const [contextState, dispatch] = useReducer(reducer, initialState);
 
+    useEffect(()=>{
+        const bootstrap = async ()=>{
+            // Load user data from local storage
+            // if no data, stop it.
+
+            let user = localStorage.getItem(userStorageKey);
+
+            if (!user) return; // stop it.
+
+            user = JSON.parse(user);
+
+            return dispatch({
+                type: ActionTypes.UPDATE_USER,
+                payload: user,
+            });
+        }
+
+        bootstrap();
+    }, [])
 
     // Other Method
+
+    const  saveUserData = (userData) =>{
+        // Receives user data object
+        // converts it to string
+        // save to local storage
+        const raw = JSON.stringify(userData);
+
+        localStorage.setItem(userStorageKey, raw);
+    }
 
     const contextData = useMemo(()=>(
         {
@@ -68,8 +97,8 @@ export const AppContextProvider = ({children}) =>{
                     throw(error);
                 }
 
-
-                console.log(res);
+                const {data} = res.data;
+                saveUserData(data);
             },
             signUpUser: async (userData)=>{
                 console.log("Sign up user:", userData);
@@ -100,7 +129,8 @@ export const AppContextProvider = ({children}) =>{
                 }
 
 
-                console.log(res);
+                const {data} = res.data;
+                saveUserData(data);
             },
         }
     ), [contextState])
