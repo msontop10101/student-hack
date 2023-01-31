@@ -94,8 +94,6 @@ export const LoginForm = () => {
   const { login, isAuth } = useAuthContext()
   console.log(isAuth, login) 
     const [visible, setVisible] = useState(false)
-    const [loggedin, setLoggedin] = useState(false)
-    const navigate = useNavigate()
       // Note that we have to initialize ALL of fields with values. These
   // could come from props, but since we don’t want to prefill this form,
   // we just use an empty string. If we don’t do this, React will yell
@@ -107,24 +105,10 @@ export const LoginForm = () => {
     },
     onSubmit: values => {
       // alert(JSON.stringify(values, null, 2));
-      // login(values)
-      axios({
-        method: 'post',
-        url: 'https://school-hacks.onrender.com/api/auth/login',
-        data: values
-      })
-      .then((response => {
-        console.log(response);
-        setLoggedin(true)
-      }))
-      .catch((error) => {
-        console.log(error);
-      })
-      
+      login(values)
     },
   });
   
-  {loggedin ? navigate('/chatt') : navigate('/login')}
 
   return (
     <div class='w-[100%]'>
