@@ -10,12 +10,10 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Chat from './pages/Chat';
 import Chatt from './pages/Chatt';
-import { useAuthContext } from './context/auth/auth';
 
 
 
 const App = () => {
-  const {isAuth} = useAuthContext()
   return (
     <>
       <Navigation/>

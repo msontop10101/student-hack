@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import '../App.css'
 import alert from '../assets/alert.png'
 import { FaSearch } from 'react-icons/fa'
 import logo from '../assets/school-hacks-logo.png'
 import Options from '../components/Options'
 import { Niveau, Matière } from '../data'
+import AppContext from '../app/context'
 
 const Home = () => {
+  const {isAuthenticated} = useContext(AppContext)
   
+  console.log(isAuthenticated)
   return (
     <div>
-          <div class='bg-[#B1A1ED] py-8' style={{borderBottom:'2px solid black'}}>
+      <div class='bg-[#B1A1ED] py-8' style={{borderBottom:'2px solid black'}}>
       <div >
       <div class='flex justify-center pb-5 md:pb-0'><img src={logo} alt="logo" class='logo-size'/></div>
       <div><p class="text-center text-sm md:text-3xl font-semibold py-0 md:py-2">STUDENT HACKS, le devoir de faire les votres</p></div>

@@ -1,13 +1,16 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import { Link } from 'react-router-dom'
 import { FaBars } from 'react-icons/fa'
 import { ImCross } from 'react-icons/im'
 import './Navigations.css'
 import logo from '../assets/school-hacks-logo.png'
+import AppContext from '../app/context'
 
 
 const Navigation = () => {
   const [Open, setOpen] = useState(false)
+  const {isAuthenticated} = useContext(AppContext)
+
   return (
     <>
       <nav class='z-50 flex flex-col md:flex-row justify-between bg-[#919191] px-8 py-4 items-center desktop navigations' style={{borderBottom: '2px solid black'}}>
@@ -19,6 +22,7 @@ const Navigation = () => {
         <Link to='/contact'><li>Contact</li></Link> 
         <Link to='/login'><li>connexion</li></Link> 
         <Link to='/signup'><li>S'inscrire</li></Link> 
+        {/* <Link to='/login' onClick={() => isAuthenticated == false}><li>Se déconnecter</li></Link> */}
       </ul>
     </nav>
 

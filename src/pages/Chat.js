@@ -1,33 +1,29 @@
-import React, {useState, useEffect} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { FaPlus } from 'react-icons/fa'
 import { RiDeleteBin6Line } from 'react-icons/ri'
 import { BsMoon } from 'react-icons/bs'
 import { FiExternalLink } from 'react-icons/fi'
 import { MdOutlineLogout, MdSend } from 'react-icons/md'
 import { CiLight } from 'react-icons/ci'
-import { useAuthContext } from '../context/auth/auth'
-import { Navigate, redirect, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import AppContext from '../app/context'
 
 
 
 const Chat = () => {
     const [darkMode, setDarkMode] = useState(false)
-    const {isAuth} = useAuthContext()
-    // const navigate = useNavigate()
-    
-    
-    // if(isAuth === false) {
-    //     // <Navigate to={'/login'}/>
-    //     redirect('/login')
-    //     // navigate("/login")
-    //     console.log("redirecting")
-    // }
-    // console.log(isAuth)
+    const {isAuthenticated} = useContext(AppContext);
+
+    const navigate = useNavigate();
+
+    useEffect(()=>{
+
+        if(!isAuthenticated) navigate("/login");
+    })
 
 
     return (
         <>
-            {!isAuth? <Navigate to={'/login'} />:null}
             <div class='flex h-[90vh]'>
                 <div class='w-[20%] hidden md:flex bg-[#919191] flex-col justify-between'>
                     <div class='p-2' style={{ borderBottom: '2px solid black'}}>
