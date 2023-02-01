@@ -5,6 +5,7 @@ import { MdSend } from 'react-icons/md'
 const Chatt = () => {
 
     const [input, setInput] = useState('')
+    console.log(input)
     const [chatLog, setChatLog] = useState([
         {
             user: 'me',
