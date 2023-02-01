@@ -20,10 +20,8 @@ const Navigation = () => {
         <Link to='/qui'><li>Qui Sommes Nous?</li></Link>
         <Link to='/faq'><li>FAQ</li></Link>
         <Link to='/contact'><li>Contact</li></Link> 
-        <div class={isAuthenticated ? 'hidden' : 'block'}>
         <Link to='/login'><li>connexion</li></Link> 
         <Link to='/signup'><li>S'inscrire</li></Link> 
-        </div>
         {/* <Link to='/login' onClick={() => isAuthenticated == false}><li>Se déconnecter</li></Link> */}
       </ul>
     </nav>
@@ -45,10 +43,8 @@ const Navigation = () => {
         <Link to='/qui'><li onClick={() => setOpen(false)}>Qui Sommes Nous?</li></Link>
         <Link to='/faq'><li onClick={() => setOpen(false)}>FAQ</li></Link>
         <Link to='/contact'><li onClick={() => setOpen(false)}>Contact</li></Link>
-        <div class={isAuthenticated ? 'hidden' : 'block'}>
         <Link to='/login'><li onClick={() => setOpen(false)}>connexion</li></Link>
         <Link to='/signup'><li onClick={() => setOpen(false)}>S'inscrire</li></Link>
-        </div>
       </ul>
       </div>
     </nav>
