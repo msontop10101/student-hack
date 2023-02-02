@@ -105,10 +105,9 @@ export const LoginForm = () => {
       email: '',
       password: '',
     },
-    onSubmit: (values, {resetForm}) => {
+    onSubmit: (values) => {
       // alert(JSON.stringify(values, null, 2));
-      login(values);
-      resetForm({values: ''})
+      login(values)
 
       // console.log(values)
     },
