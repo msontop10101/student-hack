@@ -5,25 +5,21 @@ import { BsMoon } from 'react-icons/bs'
 import { FiExternalLink } from 'react-icons/fi'
 import { MdOutlineLogout, MdSend } from 'react-icons/md'
 import { CiLight } from 'react-icons/ci'
-import { useNavigate } from 'react-router-dom'
-import AppContext from '../app/context'
+import { useAuthContext } from '../context/auth/auth'
+import { Navigate, redirect, useNavigate } from 'react-router-dom'
 
 
 
 const Chat = () => {
     const [darkMode, setDarkMode] = useState(false)
-    const {isAuthenticated} = useContext(AppContext);
+    const {isAuth} = useAuthContext()
 
-    const navigate = useNavigate();
-
-    useEffect(()=>{
-
-        if(!isAuthenticated) navigate("/login");
-    })
+    
 
 
     return (
         <>
+            {!isAuth? <Navigate to={'/login'} />:null}
             <div class='flex h-[90vh]'>
                 <div class='w-[20%] hidden md:flex bg-[#919191] flex-col justify-between'>
                     <div class='p-2' style={{ borderBottom: '2px solid black'}}>

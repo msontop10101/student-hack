@@ -4,12 +4,10 @@ import { FaBars } from 'react-icons/fa'
 import { ImCross } from 'react-icons/im'
 import './Navigations.css'
 import logo from '../assets/school-hacks-logo.png'
-import AppContext from '../app/context'
 
 
 const Navigation = () => {
   const [Open, setOpen] = useState(false)
-  const {isAuthenticated} = useContext(AppContext)
 
   return (
     <>

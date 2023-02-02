@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
 
-  const navigate = useNavigate();
+
 
   return (
     <>
@@ -24,7 +24,7 @@ const Login = () => {
             <div class='flex justify-center'>
                 <div class='flex items-center gap-2'><h1 class='font-bold text-2xl text-center'>Connexion</h1><div><BiLogIn size='2em'/></div></div>
             </div>
-            <div class='flex justify-center'><LoginForm onLogin={()=>navigate("/chat")}/></div>
+            <div class='flex justify-center'><LoginForm/></div>
             </div>
           </div>
         </div>
