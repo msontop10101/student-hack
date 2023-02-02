@@ -113,9 +113,9 @@ export const LoginForm = () => {
     },
   });
 
-  if(isAuth) {
-    <Navigate to={'/chat'} />
-  }
+  // if(isAuth) {
+  //   <Navigate to={'/chat'} />
+  // }
 
   return (
     <div class='w-[100%]'>

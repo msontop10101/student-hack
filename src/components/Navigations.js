@@ -4,10 +4,13 @@ import { FaBars } from 'react-icons/fa'
 import { ImCross } from 'react-icons/im'
 import './Navigations.css'
 import logo from '../assets/school-hacks-logo.png'
+import { useAuthContext } from '../context/auth/auth';
+import { useSignupContext } from '../context/auth/signup';
 
 
 const Navigation = () => {
   const [Open, setOpen] = useState(false)
+  const { login, isAuth } = useAuthContext()
 
   return (
     <>
@@ -18,9 +21,9 @@ const Navigation = () => {
         <Link to='/qui'><li>Qui Sommes Nous?</li></Link>
         <Link to='/faq'><li>FAQ</li></Link>
         <Link to='/contact'><li>Contact</li></Link> 
-        <Link to='/login'><li>connexion</li></Link> 
-        <Link to='/signup'><li>S'inscrire</li></Link> 
-        {/* <Link to='/login' onClick={() => isAuthenticated == false}><li>Se déconnecter</li></Link> */}
+        <Link className={isAuth && 'hidden'} to='/login'><li>connexion</li></Link> 
+        <Link className={isAuth && 'hidden'} to='/signup'><li>S'inscrire</li></Link> 
+        <Link className={isAuth ? 'flex' : 'hidden'} to='/login'><li>Se déconnecter</li></Link>
       </ul>
     </nav>
 
@@ -41,8 +44,9 @@ const Navigation = () => {
         <Link to='/qui'><li onClick={() => setOpen(false)}>Qui Sommes Nous?</li></Link>
         <Link to='/faq'><li onClick={() => setOpen(false)}>FAQ</li></Link>
         <Link to='/contact'><li onClick={() => setOpen(false)}>Contact</li></Link>
-        <Link to='/login'><li onClick={() => setOpen(false)}>connexion</li></Link>
-        <Link to='/signup'><li onClick={() => setOpen(false)}>S'inscrire</li></Link>
+        <Link className={isAuth && 'hidden'} to='/login'><li onClick={() => setOpen(false)}>connexion</li></Link>
+        <Link className={isAuth && 'hidden'} to='/signup'><li onClick={() => setOpen(false)}>S'inscrire</li></Link>
+        <Link className={isAuth ? 'block' : 'hidden'} to='/login'><li onClick={() => setOpen(false)}>Se déconnecter</li></Link>
       </ul>
       </div>
     </nav>
