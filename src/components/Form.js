@@ -105,9 +105,10 @@ export const LoginForm = () => {
       email: '',
       password: '',
     },
-    onSubmit: (values) => {
+    onSubmit: (values, {resetForm}) => {
       // alert(JSON.stringify(values, null, 2));
-      login(values)
+      login(values);
+      resetForm({values: ''})
 
       // console.log(values)
     },
@@ -183,9 +184,10 @@ export const SignupForm = () => {
       password: '',
       confirmpassword: '',
     },
-    onSubmit: values => {
+    onSubmit: (values, {resetForm}) => {
       // alert(JSON.stringify(values, null, 2));
       signup(values)
+      resetForm({values: ''})
 
     },
   });
