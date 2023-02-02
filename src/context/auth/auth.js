@@ -4,7 +4,7 @@ import { useState, useContext } from "react";
 import { loginUser } from "./comp/Login";
 
 export const AuthContext = React.createContext({
-    isAuth: localStorage.getItem('access')?true:false,
+    isAuth: false,
     access: localStorage.getItem('access'),
     // refresh: localStorage.getItem('refresh'),
     user: localStorage.getItem('user'),
@@ -12,6 +12,7 @@ export const AuthContext = React.createContext({
     success: false,
     loading: false,
     login: (value) => {},
+    logout: () => {}
 });
 
 
@@ -19,7 +20,7 @@ export const AuthProvider = ( { children }) => {
     const [success, setsucess] = useState(false);
     const [error, setError] = useState("");
     const [loading, setIsloading] = useState(false)
-
+    const [isAuth, setisAuth] = useState(false)
     const Login = (details) => {
       // console.log(details)
       setIsloading(true)
@@ -28,6 +29,7 @@ export const AuthProvider = ( { children }) => {
           console.log(res.data.data.email, "token")
           setsucess(true);
           setError("");
+          setisAuth(true)
           localStorage.setItem('access', res.data.data.token)
           // localStorage.setItem('refresh', res.data.refresh)
           localStorage.setItem('user', res.data.data.email)
@@ -35,19 +37,27 @@ export const AuthProvider = ( { children }) => {
       })
       .catch((err) => {
         console.log(err)
-          setIsloading(true)
           setIsloading(false)
           setsucess(false);
+          setisAuth(false)
           setError(err.response);
-          localStorage.removeItem('access', null)
+          localStorage.removeItem('access')
           // localStorage.removeItem('refresh', null)
-          localStorage.removeItem('user', null)
+          localStorage.removeItem('user')
       })
 };
+      const logout = () => {
+        console.log('logging out');
+        localStorage.removeItem('access')
+        setIsloading(false)
+        setError("")
+        setisAuth(false)
+        localStorage.removeItem('user')
+      }
     return (
       <AuthContext.Provider
         value={{
-          isAuth: localStorage.getItem('access')?true:false,
+          isAuth: isAuth,
           access: localStorage.getItem('access'),
           // refresh: localStorage.getItem('refresh'),
           user: localStorage.getItem('user'),
@@ -55,6 +65,7 @@ export const AuthProvider = ( { children }) => {
           success,
           loading,
           login: Login,
+          logout
         }}
       >
         {children}

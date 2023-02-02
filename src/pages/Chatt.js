@@ -20,7 +20,7 @@ const Chatt = () => {
         e.preventDefault();
         setChatLog((p)=>[...p, { user: 'me', message: `${input}` }])
         setInput("")
-        const response = await fetch('https://ba40-197-210-76-184.eu.ngrok.io/api/chat', {
+        const response = await fetch('https://school-hacks.onrender.com/api/chat', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -54,7 +54,7 @@ const Chatt = () => {
                             onChange={(e) => setInput(e.target.value)}
                             style={{ border: '', padding:'0px 10px 0px 10px', width: '90%', height: '50px', borderRadius: '10px', outline: 'none' }}
                         />
-                        <div class='cursor-pointer'><MdSend color='black' size='1.6rem'/></div>
+                        <div class='cursor-pointer'><button type='button'><MdSend color='black' size='1.6rem'/></button></div>
                     </div>
                 </form>
             </div>

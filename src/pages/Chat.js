@@ -14,7 +14,7 @@ const Chat = () => {
     const [darkMode, setDarkMode] = useState(false)
     const {isAuth} = useAuthContext()
 
-    
+    console.log(isAuth)
 
 
     return (

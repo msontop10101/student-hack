@@ -10,7 +10,7 @@ import { useSignupContext } from '../context/auth/signup';
 
 const Navigation = () => {
   const [Open, setOpen] = useState(false)
-  const { login, isAuth } = useAuthContext()
+  const { login, isAuth, logout } = useAuthContext()
 
   return (
     <>
@@ -46,7 +46,8 @@ const Navigation = () => {
         <Link to='/contact'><li onClick={() => setOpen(false)}>Contact</li></Link>
         <Link className={isAuth && 'hidden'} to='/login'><li onClick={() => setOpen(false)}>connexion</li></Link>
         <Link className={isAuth && 'hidden'} to='/signup'><li onClick={() => setOpen(false)}>S'inscrire</li></Link>
-        <Link className={isAuth ? 'block' : 'hidden'} to='/login'><li onClick={() => setOpen(false)}>Se déconnecter</li></Link>
+        <Link className={isAuth ? 'block' : 'hidden'} to='/login'><li onClick={() => logout()}>Se déconnecter</li></Link>
+        
       </ul>
       </div>
     </nav>
