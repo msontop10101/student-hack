@@ -23,7 +23,7 @@ const Navigation = () => {
         <Link to='/contact'><li>Contact</li></Link> 
         <Link className={isAuth && 'hidden'} to='/login'><li>connexion</li></Link> 
         <Link className={isAuth && 'hidden'} to='/signup'><li>S'inscrire</li></Link> 
-        <Link className={isAuth ? 'flex' : 'hidden'} to='/login'><li>Se déconnecter</li></Link>
+        <Link className={isAuth ? 'block' : 'hidden'} onClick={() => logout()}>Se déconnecter</Link>
       </ul>
     </nav>
 
@@ -46,7 +46,7 @@ const Navigation = () => {
         <Link to='/contact'><li onClick={() => setOpen(false)}>Contact</li></Link>
         <Link className={isAuth && 'hidden'} to='/login'><li onClick={() => setOpen(false)}>connexion</li></Link>
         <Link className={isAuth && 'hidden'} to='/signup'><li onClick={() => setOpen(false)}>S'inscrire</li></Link>
-        <Link className={isAuth ? 'block' : 'hidden'} to='/login'><li onClick={() => logout()}>Se déconnecter</li></Link>
+        <button className={isAuth ? 'block' : 'hidden'} onClick={() => {logout(); setOpen(false)}}>Se déconnecter</button>
         
       </ul>
       </div>

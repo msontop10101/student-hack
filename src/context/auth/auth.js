@@ -36,11 +36,11 @@ export const AuthProvider = ( { children }) => {
           setIsloading(false)
       })
       .catch((err) => {
-        console.log(err)
+        console.log(err.response.data.error.message)
           setIsloading(false)
           setsucess(false);
           setisAuth(false)
-          setError(err.response);
+          setError(err.response.data.error.message);
           localStorage.removeItem('access')
           // localStorage.removeItem('refresh', null)
           localStorage.removeItem('user')

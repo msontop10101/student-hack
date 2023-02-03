@@ -1,15 +1,18 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import { LoginForm } from '../components/Form'
 import logo from '../assets/school-hacks-logo.png'
 import { BiLogIn } from 'react-icons/bi'
-import { useNavigate } from 'react-router-dom'
+import { useAuthContext } from '../context/auth/auth';
 
 const Login = () => {
-
+  const { error } = useAuthContext()
 
 
   return (
     <>
+      <div>
+        {error && <p className='bg-[#ec6363] text-white p-2 text-center'>{error}</p>}
+      </div>
       <div class='h-[93vh] md:h-[90vh] flex items-center justify-center'>
         <div class='bg-[#B1A1ED] flex w-full md:w-[80vw] h-full md:h-[80vh]'>
           <div class='hidden md:flex w-[40%] h-[100%] bg-white border-[#B1A1ED] border-2 items-center justify-center'>
@@ -24,7 +27,7 @@ const Login = () => {
             <div class='flex justify-center'>
                 <div class='flex items-center gap-2'><h1 class='font-bold text-2xl text-center'>Connexion</h1><div><BiLogIn size='2em'/></div></div>
             </div>
-            <div class='flex justify-center'><LoginForm/></div>
+            <div class='flex justify-center w-full'><LoginForm/></div>
             </div>
           </div>
         </div>
