@@ -1,15 +1,20 @@
-import React, { useContext } from 'react'
+import React, { useState } from 'react'
 import '../App.css'
 import alert from '../assets/alert.png'
 import { FaSearch } from 'react-icons/fa'
 import logo from '../assets/school-hacks-logo.png'
 import Options from '../components/Options'
 import { Niveau, Matière } from '../data'
+import CookieBanner from '../components/CookieBanner'
+import { posthog } from 'posthog-js';
 
 const Home = () => {
+  const [selectedOptions1, setSelectedOptions1] = useState('')
+  const [selectedOptions2, setSelectedOptions2] = useState('')
+  console.log(selectedOptions1)
   return (
-    <div>
-      <div class='bg-[#B1A1ED] py-8' style={{borderBottom:'2px solid black'}}>
+    <div className='relative'>
+      <div class='bg-[#B1A1ED] py-8' style={{borderBottom:'2px solid black'}}> 
       <div >
       <div class='flex justify-center pb-5 md:pb-0'><img src={logo} alt="logo" class='logo-size'/></div>
       <div><p class="text-center text-sm md:text-3xl font-semibold py-0 md:py-2">STUDENT HACKS, le devoir de faire les votres</p></div>
@@ -18,15 +23,15 @@ const Home = () => {
         <input style={{borderRadius: '20px', border:'2px solid black' ,minWidth: '40%'}} class="py-2 px-8" placeholder="Ecris le sujet d'un exercice, une consigne, ou un extrait et laisse la magie opérer..."/>
         <div><img src={alert} width={30} height={30} alt='alert'/></div>
 
-        <Options title='Niveau'>
+        <Options title={selectedOptions1 === '' ? 'Niveau' : selectedOptions1}>
           {Niveau.map((data) => 
-            <li key={data.id} class='p-2 hover:bg-white hover:rounded-xl cursor-pointer' >{data.option}</li>
+            <li key={data.id} class='p-2 hover:bg-white hover:rounded-xl cursor-pointer' onClick={() => setSelectedOptions1(data.option)} >{data.option}</li>
           )}
         </Options>
 
-        <Options title='Matière'>
+        <Options title={selectedOptions2 === ''? 'Matière' : selectedOptions2}>
           {Matière.map((data) => 
-          <li key={data.id} class='p-2 hover:bg-white hover:rounded-xl cursor-pointer' >{data.option}</li>
+          <li key={data.id} class='p-2 hover:bg-white hover:rounded-xl cursor-pointer' onClick={() => setSelectedOptions2(data.option)}>{data.option}</li>
           )}
         </Options>
 
@@ -85,6 +90,9 @@ const Home = () => {
       </div>
     </div>
     {/* --------------------SECTION4END-------------------- */}
+    <div className='fixed bottom-0'>
+        {posthog.has_opted_in_capturing() || posthog.has_opted_out_capturing() ? null : <CookieBanner />}
+      </div>
     </div>
   )
 }

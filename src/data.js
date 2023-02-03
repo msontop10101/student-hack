@@ -3,7 +3,7 @@ export const Navigations = [
         id: 1,
         link: '/home',
         nav: 'home'
-    },
+    }, 
     {
         id: 2,
         link: '/qui',

@@ -55,7 +55,7 @@ const Chatt = () => {
             body: message,
         }
 
-        fetch('https://school-hacks.onrender.com/api/chat', requestConfig)
+        fetch('https://5d57-197-210-55-229.eu.ngrok.io/api/chat', requestConfig)
         .then((res)=>res.json())
         .then(data=>{
             console.log(data);
@@ -120,7 +120,7 @@ const Chatt = () => {
                         </ul>
                     </div>
                 </div>
-            <div className={darkMode ? 'w-[70%] md:w-[100%] bg-black' : 'w-[70%] md:w-[100%] bg-white'} style={{height: '100vh', position: 'relative' }}>
+            <div className={darkMode ? 'w-[100%] md:w-[70%] bg-black' : 'w-[100%] md:w-[70%] bg-white'} style={{height: '100vh', position: 'relative' }}>
                 <div className={darkMode ? 'text-white': 'text-black'}><h1 className='font-bold text-xl text-center py-2'>Student Hacks</h1></div>
                 <div className='chatbox absolute bottom-40'>
                     <div className={darkMode ? 'chat-log bg-black' : 'chat-log bg-white'}>

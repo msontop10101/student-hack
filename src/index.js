@@ -6,6 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { AuthProvider } from './context/auth/auth';
 import { SignUpProvider } from "./context/auth/signup"
+import posthog from 'posthog-js'; // new
+
+posthog.init('phc_3gMGBSb1vGSnYDV0Y6kKOTG5sD9uKa9RUtfEnLamQBf', { api_host: 'https://app.posthog.com' })
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
