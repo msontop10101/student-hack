@@ -8,6 +8,7 @@ import { useAuthContext } from '../context/auth/auth';
 import { useSignupContext } from '../context/auth/signup';
 import { Navigate } from 'react-router-dom';
 import { RotatingLines } from 'react-loader-spinner'
+import SuccessModal from './SuccessModal';
 
 const ContactForm = () => {
 
@@ -307,7 +308,6 @@ export const SignupForm = () => {
   return (
     <div class='w-[100%]'>
       <form onSubmit={formik.handleSubmit}>
-        {success && <p>Success!</p>}
         <div class='flex flex-col md:flex-row justify-between my-5'>
           <div class='flex flex-col w-full md:w-[45%]'>
             <label class='font-bold mb-1 text-lg' htmlFor="firstname">Prénom</label>
@@ -397,6 +397,7 @@ export const SignupForm = () => {
           <button class='bg-white h-[50px] font-bold my-10 p-4 shadow-md' style={{ borderRadius: '10px' }} type="submit">S'INSCRIRE</button>
         </div>
       </form>
+      {success && <SuccessModal/>}
     </div>
   );
 }
