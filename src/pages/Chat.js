@@ -35,7 +35,7 @@ const Chat = () => {
         setSearchVal("")
         setChatLog(chatLogNew)
         const messages = chatLogNew.map((message) => message.message).join('')
-        const response = await fetch('https://0bd6-197-210-53-85.eu.ngrok.io/', {
+        const response = await fetch('https://student-chat.onrender.com/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -117,3 +117,4 @@ const ChatMessage = ({ message }) => {
 }
 
 export default Chat;
+

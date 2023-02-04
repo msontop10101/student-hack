@@ -20,7 +20,9 @@ const App = () => {
 
   return (
     <>
-      <SearchValueContext.Provider value={searchValue + ' ' + 'dans' + ' ' + level + ' '+ 'sous' + ' ' + subject}>
+      <SearchValueContext.Provider value={searchValue && level && subject ? searchValue + ' ' + 'dans' + ' ' + level + ' ' + 'sous' + ' ' + subject :
+        searchValue && level ? searchValue + ' ' + 'dans' + ' ' + level :
+          searchValue && subject ? searchValue + ' ' + 'sous' + ' ' + subject : searchValue}>
         <Navigation />
         <Routes>
           <Route path='/' element={<Home setSearchValue={setSearchValue} setLevel={setLevel} setSubject={setSubject} />}>Home</Route>

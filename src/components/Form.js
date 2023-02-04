@@ -116,7 +116,7 @@ export const LoginForm = () => {
       >
         {({ errors, touched }) => (
           <Form className='w-full'>
-            {isAuth && <Navigate to={'/chatt'} />}
+            {isAuth && <Navigate to={'/chat'} />}
             <div class='flex flex-col my-5'>
               <label class='font-bold mb-1 text-lg' htmlFor="email">E-mail</label>
               <div class='w-full flex items-center bg-white rounded-[10px] px-4'>

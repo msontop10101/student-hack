@@ -22,7 +22,7 @@ const Navigation = () => {
         <Link to='/contact'><li>Contact</li></Link> 
         <Link className={isAuth && 'hidden'} to='/login'><li>connexion</li></Link> 
         <Link className={isAuth && 'hidden'} to='/signup'><li>S'inscrire</li></Link> 
-        <Link className={isAuth ? 'block' : 'hidden'} to='/chatt'><li>Discuter</li></Link> 
+        <Link className={isAuth ? 'block' : 'hidden'} to='/chat'><li>Discuter</li></Link> 
         <Link className={isAuth ? 'block' : 'hidden'} onClick={() => logout()}>Se déconnecter</Link>
       </ul>
     </nav>
