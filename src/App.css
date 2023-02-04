@@ -121,10 +121,9 @@ body, html {
 .chat-log {
   width: 100%;
   padding: 20px;
-  display: flex;
   justify-content: center;
+  display: flex;
   flex-direction: column;
-
 
 }
 .chat-message {

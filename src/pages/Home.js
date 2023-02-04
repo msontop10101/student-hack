@@ -7,11 +7,16 @@ import Options from '../components/Options'
 import { Niveau, Matière } from '../data'
 import CookieBanner from '../components/CookieBanner'
 import { posthog } from 'posthog-js';
+import { Link } from 'react-router-dom'
 
-const Home = () => {
+const Home = ({ setSearchValue, setLevel, setSubject }) => {
   const [selectedOptions1, setSelectedOptions1] = useState('')
   const [selectedOptions2, setSelectedOptions2] = useState('')
-  console.log(selectedOptions1)
+  const [searchVal, setSearchVal] = useState('')
+  setLevel(selectedOptions1)
+  setSubject(selectedOptions2)
+  
+
   return (
     <div className='relative'>
       <div class='bg-[#B1A1ED] py-8' style={{borderBottom:'2px solid black'}}> 
@@ -20,8 +25,8 @@ const Home = () => {
       <div><p class="text-center text-sm md:text-3xl font-semibold py-0 md:py-2">STUDENT HACKS, le devoir de faire les votres</p></div>
       <div class='flex flex-col md:flex-row gap-4 justify-center mt-4 items-center'>
         <FaSearch size='2em' class='hidden md:block'/>
-        <input style={{borderRadius: '20px', border:'2px solid black' ,minWidth: '40%'}} class="py-2 px-8" placeholder="Ecris le sujet d'un exercice, une consigne, ou un extrait et laisse la magie opérer..."/>
-        <div><img src={alert} width={30} height={30} alt='alert'/></div>
+        <input value={searchVal} onChange={(e) => setSearchVal(e.target.value)} style={{borderRadius: '20px', border:'2px solid black' ,minWidth: '40%'}} class="py-2 px-8" placeholder="Ecris le sujet d'un exercice, une consigne, ou un extrait et laisse la magie opérer..."/>
+        <div><Link to='/chat'><button type='submit' onClick={() => setSearchValue(searchVal)}><img src={alert} width={30} height={30} alt='alert'/></button></Link></div>
 
         <Options title={selectedOptions1 === '' ? 'Niveau' : selectedOptions1}>
           {Niveau.map((data) => 

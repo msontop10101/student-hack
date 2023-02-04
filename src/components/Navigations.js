@@ -5,7 +5,6 @@ import { ImCross } from 'react-icons/im'
 import './Navigations.css'
 import logo from '../assets/school-hacks-logo.png'
 import { useAuthContext } from '../context/auth/auth';
-import { useSignupContext } from '../context/auth/signup';
 
 
 const Navigation = () => {

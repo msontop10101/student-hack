@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navigation from './components/Navigations';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
@@ -9,24 +9,30 @@ import Footer from './components/Footer';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Chat from './pages/Chat';
-import Chatt from './pages/Chatt';
+
+export const SearchValueContext = React.createContext()
 
 
 const App = () => {
+  const [searchValue, setSearchValue] = useState("")
+  const [level, setLevel] = useState('')
+  const [subject, setSubject] = useState('')
+
   return (
     <>
-      <Navigation />
-      <Routes>
-        <Route path='/' element={<Home />}>Home</Route>
-        <Route path='/qui' element={<Qui />}>Qui Sommes Nous?</Route>
-        <Route path='/faq' element={<Faq />}>FAQ</Route>
-        <Route path='/contact' element={<Contact />}>Contact</Route>
-        <Route path='/login' element={<Login />}>Login</Route>
-        <Route path='/signup' element={<Signup />}>Signup</Route>
-        <Route path='/chat' element={<Chat />}>Chat</Route>
-        <Route path='/chatt' element={<Chatt />}>Chatt</Route>
-      </Routes>
-      <Footer />
+      <SearchValueContext.Provider value={searchValue + ' ' + 'dans' + ' ' + level + ' '+ 'sous' + ' ' + subject}>
+        <Navigation />
+        <Routes>
+          <Route path='/' element={<Home setSearchValue={setSearchValue} setLevel={setLevel} setSubject={setSubject} />}>Home</Route>
+          <Route path='/qui' element={<Qui />}>Qui Sommes Nous?</Route>
+          <Route path='/faq' element={<Faq />}>FAQ</Route>
+          <Route path='/contact' element={<Contact />}>Contact</Route>
+          <Route path='/login' element={<Login />}>Login</Route>
+          <Route path='/signup' element={<Signup />}>Signup</Route>
+          <Route path='/chat' element={<Chat />}>Chat</Route>
+        </Routes>
+        <Footer />
+      </SearchValueContext.Provider>
     </>
   )
 }

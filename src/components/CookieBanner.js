@@ -16,7 +16,7 @@ const CookieBanner = () => {
   return (
     <>
       <div className='w-[99vw]'>
-        {showBanner && <div className='bg-black opacity-75 text-white'>
+        {showBanner && <div className='bg-black text-white'>
           <div className='p-4'>
             <p className='text-sm'> En cliquant sur « Accepter tous les cookies », vous acceptez le stockage de cookies sur votre appareil pour améliorer la navigation sur le site, analyser son utilisation et contribuer à nos efforts de marketing.</p>
             <div className='flex flex-col gap-2 mt-2'>
