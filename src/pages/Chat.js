@@ -16,7 +16,6 @@ const Chat = () => {
     const [input, setInput] = useState('')
     const [darkMode, setDarkMode] = useState(false)
     const [searchVal, setSearchVal] = useState(val)
-    console.log(`value: ${val}`)
     const { isAuth } = useAuthContext()
     const [chatLog, setChatLog] = useState([
         {
@@ -53,7 +52,7 @@ const Chat = () => {
 
     return (
         <>
-            {/* {!isAuth ? <Navigate to={'/login'} /> : null} */}
+            {!isAuth ? <Navigate to={'/login'} /> : null}
             <div className='flex'>
                 <div class='w-[30%] hidden md:flex bg-[#919191] flex-col justify-between'>
                     <div class='p-2' style={{ borderBottom: '2px solid black' }}>
