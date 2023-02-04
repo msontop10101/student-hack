@@ -46,7 +46,7 @@ const Navigation = () => {
         <Link to='/contact'><li onClick={() => setOpen(false)}>Contact</li></Link>
         <Link className={isAuth && 'hidden'} to='/login'><li onClick={() => setOpen(false)}>connexion</li></Link>
         <Link className={isAuth && 'hidden'} to='/signup'><li onClick={() => setOpen(false)}>S'inscrire</li></Link>
-        <Link className={isAuth ? 'block' : 'hidden'} to='/signup'><li onClick={() => setOpen(false)}>Discuter</li></Link>
+        <Link className={isAuth ? 'block' : 'hidden'} to='/chat'><li onClick={() => setOpen(false)}>Discuter</li></Link>
         <button className={isAuth ? 'block' : 'hidden'} onClick={() => {logout(); setOpen(false)}}>Se déconnecter</button>
         
       </ul>
