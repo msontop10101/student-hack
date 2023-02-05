@@ -9,10 +9,11 @@ import CookieBanner from '../components/CookieBanner'
 import { posthog } from 'posthog-js';
 import { Link } from 'react-router-dom'
 
-const Home = ({ setSearchValue, setLevel, setSubject }) => {
+const Home = ({ setSearchValue, setLevel, setSubject, setCvValue }) => {
   const [selectedOptions1, setSelectedOptions1] = useState('')
   const [selectedOptions2, setSelectedOptions2] = useState('')
   const [searchVal, setSearchVal] = useState('')
+  const [cvVal, setCvVal] = useState('')
   setLevel(selectedOptions1)
   setSubject(selectedOptions2)
   
@@ -68,9 +69,10 @@ const Home = ({ setSearchValue, setLevel, setSubject }) => {
       <div class='flex justify-center pb-5 md:pb-0'><img src={logo} alt="logo" class='logo-size'/></div>
       <div><p class="text-center text-sm md:text-3xl font-semibold py-0 md:py-2">Besoin D’un CV ?</p></div>
       <div class='flex flex-col md:flex-row gap-4 justify-center mt-4 items-center'>
+
         <FaSearch size='2em' class='hidden md:block'/>
-        <input style={{borderRadius: '20px', border:'2px solid black' ,minWidth: '40%'}} class="py-2 px-8" placeholder="Décrivez vous, ainsi que votre parcours et laisser la magie opérer"/>
-        <div><img src={alert} width={30} height={30} alt='alert'/></div>
+        <input value={cvVal} onChange={(e) => setCvVal(e.target.value)} style={{borderRadius: '20px', border:'2px solid black' ,minWidth: '40%'}} class="py-2 px-8" placeholder="Décrivez vous, ainsi que votre parcours et laisser la magie opérer"/>
+        <div><Link to='/chat'><button type='submit' onClick={() => setCvValue(cvVal)}><img src={alert} width={30} height={30} alt='alert'/></button></Link></div>
         </div>
       </div>
     </div>

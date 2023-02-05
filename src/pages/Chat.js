@@ -9,30 +9,34 @@ import { CiLight } from 'react-icons/ci'
 import { useAuthContext } from '../context/auth/auth'
 import { Navigate } from 'react-router-dom'
 import { SearchValueContext } from '../App';
+import { CvValueContext } from '../App';
 
 const Chat = () => {
 
     const val = useContext(SearchValueContext)
+    const cvVal = useContext(CvValueContext)
     const [input, setInput] = useState('')
     const [darkMode, setDarkMode] = useState(false)
     const [searchVal, setSearchVal] = useState(val)
+    const [cvSearchVal, setCvSearchVal] = useState(cvVal)
     const { isAuth } = useAuthContext()
     const [chatLog, setChatLog] = useState([
-        {
-            user: 'me',
-            message: 'I want to use chatgpt today'
-        },
-        {
-            user: 'gpt',
-            message: 'How can i help you?'
-        }
+        // {
+        //     user: 'me',
+        //     message: 'I want to use chatgpt today'
+        // },
+        // {
+        //     user: 'gpt',
+        //     message: 'How can i help you?'
+        // }
     ])
-
+    
     async function handleSubmit(e) {
         e.preventDefault();
-        let chatLogNew = [...chatLog, { user: 'me', message: `${searchVal ? searchVal : input}` }]
+        let chatLogNew = [...chatLog, { user: 'me', message: `${searchVal ? searchVal : cvSearchVal ? cvSearchVal : input}` }]
         setInput("")
         setSearchVal("")
+        setCvSearchVal('')
         setChatLog(chatLogNew)
         const messages = chatLogNew.map((message) => message.message).join('')
         const response = await fetch('https://student-chat.onrender.com/', {
@@ -52,7 +56,7 @@ const Chat = () => {
 
     return (
         <>
-            {!isAuth ? <Navigate to={'/login'} /> : null}
+            {/* {!isAuth ? <Navigate to={'/login'} /> : null} */}
             <div className='flex'>
                 <div class='w-[30%] hidden md:flex bg-[#919191] flex-col justify-between'>
                     <div class='p-2' style={{ borderBottom: '2px solid black' }}>
@@ -82,11 +86,11 @@ const Chat = () => {
                             <input
                                 type='text'
                                 rows='1'
-                                value={searchVal ? searchVal : input}
+                                value={searchVal ? searchVal : searchVal && cvSearchVal ? cvSearchVal : input}
                                 onChange={(e) => setInput(e.target.value)}
                                 style={{ backgroundColor: 'transparent', padding: '0px 10px 0px 10px', width: '100%', height: '40px', borderRadius: '10px', outline: 'none', }}
                             />
-                            <div className='cursor-pointer'><button type='submit'><MdSend color={darkMode ? 'white' : 'black'} size='1.6rem' /></button></div>
+                            <div className='cursor-pointer px-2 flex justify-center'><button type='submit'><MdSend color={darkMode ? 'white' : 'black'} size='1.6rem' /></button></div>
                         </div>
                     </form>
                 </div>

@@ -20,7 +20,7 @@ const CookieBanner = () => {
           <div className='p-4'>
             <p className='text-sm'> En cliquant sur « Accepter tous les cookies », vous acceptez le stockage de cookies sur votre appareil pour améliorer la navigation sur le site, analyser son utilisation et contribuer à nos efforts de marketing.</p>
             <div className='flex flex-col gap-2 mt-2'>
-              <button type='button' className='bg-[#B1A1ED] p-2 rounded-lg' onClick={acceptCookies}>Authorier tous le cookies</button>
+              <button type='button' className='bg-[#B1A1ED] p-2 rounded-lg' onClick={acceptCookies}>Accepter tous les cookies</button>
               <button type='button' className='border-2 border-[#B1A1ED] p-2 rounded-lg' onClick={declineCookies}>Tout refuer</button>
             </div>
           </div>

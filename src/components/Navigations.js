@@ -20,9 +20,9 @@ const Navigation = () => {
         <Link to='/qui'><li>Qui Sommes Nous?</li></Link>
         <Link to='/faq'><li>FAQ</li></Link>
         <Link to='/contact'><li>Contact</li></Link> 
+        <Link to='/chat'><li>Discuter</li></Link> 
         <Link className={isAuth && 'hidden'} to='/login'><li>connexion</li></Link> 
         <Link className={isAuth && 'hidden'} to='/signup'><li>S'inscrire</li></Link> 
-        <Link className={isAuth ? 'block' : 'hidden'} to='/chat'><li>Discuter</li></Link> 
         <Link className={isAuth ? 'block' : 'hidden'} onClick={() => logout()}>Se déconnecter</Link>
       </ul>
     </nav>
@@ -44,9 +44,9 @@ const Navigation = () => {
         <Link to='/qui'><li onClick={() => setOpen(false)}>Qui Sommes Nous?</li></Link>
         <Link to='/faq'><li onClick={() => setOpen(false)}>FAQ</li></Link>
         <Link to='/contact'><li onClick={() => setOpen(false)}>Contact</li></Link>
+        <Link to='/chat'><li onClick={() => setOpen(false)}>Discuter</li></Link>
         <Link className={isAuth && 'hidden'} to='/login'><li onClick={() => setOpen(false)}>connexion</li></Link>
         <Link className={isAuth && 'hidden'} to='/signup'><li onClick={() => setOpen(false)}>S'inscrire</li></Link>
-        <Link className={isAuth ? 'block' : 'hidden'} to='/chat'><li onClick={() => setOpen(false)}>Discuter</li></Link>
         <button className={isAuth ? 'block' : 'hidden'} onClick={() => {logout(); setOpen(false)}}>Se déconnecter</button>
         
       </ul>
