@@ -1,4 +1,4 @@
-import React, {useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import '../App.css'
 import { FaPlus } from 'react-icons/fa'
 import { RiDeleteBin6Line } from 'react-icons/ri'
@@ -10,6 +10,7 @@ import { useAuthContext } from '../context/auth/auth'
 import { Navigate } from 'react-router-dom'
 import { SearchValueContext } from '../App';
 import { CvValueContext } from '../App';
+import axios from 'axios';
 
 const Chat = () => {
 
@@ -23,34 +24,36 @@ const Chat = () => {
     const [chatLog, setChatLog] = useState([
         // {
         //     user: 'me',
-        //     message: 'I want to use chatgpt today'
+        //     message: 'I want to use chatgpt today111111'
         // },
         // {
         //     user: 'gpt',
-        //     message: 'How can i help you?'
+        //     message: 'How can i help you?1111111'
         // }
     ])
-    
+
     async function handleSubmit(e) {
         e.preventDefault();
         let chatLogNew = [...chatLog, { user: 'me', message: `${searchVal ? searchVal : cvSearchVal ? cvSearchVal : input}` }]
+        const message = input;
         setInput("")
         setSearchVal("")
         setCvSearchVal('')
         setChatLog(chatLogNew)
-        const messages = chatLogNew.map((message) => message.message).join('')
+        // const messages = chatLogNew.map((message) => message.message).join('')
         const response = await fetch('https://student-chat.onrender.com/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                message: messages
+                message, //: messages
             })
         });
         const data = await response.json();
         setChatLog([...chatLogNew, { user: 'gpt', message: `${data.message}` }])
-        // console.log(data.message)
+        console.log(data.message)
+        console.log(data)
     }
 
 
@@ -64,14 +67,14 @@ const Chat = () => {
                     </div>
                     <div class='px-2 py-6' style={{ borderTop: '2px solid black' }}>
                         <ul class='flex flex-col gap-2 chat'>
-                            <li class='flex items-center gap-2'><RiDeleteBin6Line size='1.5em' onClick={() => setChatLog([])}/><p>Clear conversation</p></li>
+                            <li class='flex items-center gap-2'><RiDeleteBin6Line size='1.5em' onClick={() => setChatLog([])} /><p>Clear conversation</p></li>
                             <li class='flex items-center gap-2' onClick={() => setDarkMode(!darkMode)}>{darkMode ? <CiLight size='1.5em' /> : <BsMoon size='1.5em' />}<p>{darkMode ? 'Light Mode' : 'Dark Mode'}</p></li>
                             <li class='flex items-center gap-2'><FiExternalLink size='1.5em' /><p>FAQ</p></li>
                             <li class='flex items-center gap-2'><MdOutlineLogout size='1.5em' /><p>Logout</p></li>
                         </ul>
                     </div>
                 </div>
-                <div className={darkMode ? 'w-[100%] md:w-[70%] bg-black' : 'w-[100%] md:w-[70%] bg-white'} style={{ height: '100vh', position: 'relative' }}>
+                <div className={darkMode ? 'w-[100%] md:w-[70%] bg-black' : 'w-[100%] md:w-[70%] bg-white'} style={{ minHeight: '100vh', position: 'relative', overflow: 'scroll' }}>
                     <div className={darkMode ? 'text-white' : 'text-black'}><h1 className='font-bold text-xl text-center py-2'>Student Hacks</h1></div>
                     <div className='chatbox absolute bottom-40'>
                         <div className={darkMode ? 'chat-log bg-black' : 'chat-log bg-white'}>
@@ -106,16 +109,16 @@ const ChatMessage = ({ message }) => {
 
     return (
         <div className='odd:flex justify-end bg-[#9869e9] text-white even:bg-[#919191] even:text-[black] my-1 rounded-xl'>
-            <div className={`chat-message ${message.user === 'gpt' && 'chatgpt'}`}>
-                <div className='chat-message-center'>
-                    <div className={`avater ${message.user === 'gpt' && 'chatgpt'}`}>
+                <div className={`chat-message ${message.user === 'gpt' && 'chatgpt'}`}>
+                    <div className='chat-message-center'>
+                        <div className={`avater ${message.user === 'gpt' && 'chatgpt'}`}>
 
-                    </div>
-                    <div className='message'>
-                        {message.message}
+                        </div>
+                        <div className='message'>
+                            {message.message}
+                        </div>
                     </div>
                 </div>
-            </div>
         </div>
     )
 }
