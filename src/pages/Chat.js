@@ -22,14 +22,14 @@ const Chat = () => {
     const [cvSearchVal, setCvSearchVal] = useState(cvVal)
     const { isAuth } = useAuthContext()
     const [chatLog, setChatLog] = useState([
-        // {
-        //     user: 'me',
-        //     message: 'I want to use chatgpt today111111'
-        // },
-        // {
-        //     user: 'gpt',
-        //     message: 'How can i help you?1111111'
-        // }
+        {
+            user: 'me',
+            message: 'I want to use chatgpt today111111'
+        },
+        {
+            user: 'gpt',
+            message: 'How can i help you?1111111'
+        }
     ])
 
     async function handleSubmit(e) {
@@ -108,8 +108,8 @@ const ChatMessage = ({ message }) => {
 
 
     return (
-        <div className='odd:flex justify-end bg-[#9869e9] text-white even:bg-[#919191] even:text-[black] my-1 rounded-xl'>
-                <div className={`chat-message ${message.user === 'gpt' && 'chatgpt'}`}>
+        <div className='odd:flex justify-end text-white even:text-[black] my-1 rounded-xl'>
+                <div className={`chat-message ${message.user === 'gpt' && 'chatgpt'}`}> 
                     <div className='chat-message-center'>
                         <div className={`avater ${message.user === 'gpt' && 'chatgpt'}`}>
 
