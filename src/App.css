@@ -125,7 +125,8 @@ body, html {
 }
 .chat-message {
   display: flex;
-  width: 80%;
+  width: 70%;
+  background-color: #9869e9;
   border-radius: 5px;
   padding: 10px;
   background-color: #9869e9;
@@ -134,9 +135,9 @@ body, html {
 .chatgpt {
   color: black;
   background-color: #919191;
+  width: 70%;
   border-radius: 10px;
   padding: 10px;
-  width: 80%;
 }
 .message {
   overflow-wrap: anywhere;
