@@ -14,6 +14,8 @@ import axios from 'axios';
 
 const Chat = () => {
 
+    const navbarHeight = '63px'
+    const footerHeight = '84px'
     const val = useContext(SearchValueContext)
     const cvVal = useContext(CvValueContext)
     const [input, setInput] = useState('')
@@ -74,28 +76,31 @@ const Chat = () => {
                         </ul>
                     </div>
                 </div>
-                <div className={darkMode ? 'w-[100%] md:w-[70%] bg-black' : 'w-[100%] md:w-[70%] bg-white'} style={{ minHeight: '100vh', position: 'relative', overflow: 'scroll' }}>
-                    <div className={darkMode ? 'text-white' : 'text-black'}><h1 className='font-bold text-xl text-center py-2'>Student Hacks</h1></div>
-                    <div className='chatbox absolute bottom-40'>
-                        <div className={darkMode ? 'chat-log bg-black' : 'chat-log bg-white'}>
-                            {chatLog.map((message, index) => (
-                                <ChatMessage key={index} message={message} />
-                            ))}
+                <div className={darkMode ? 'w-[100%] md:w-[70%] bg-black relative z-30' : 'w-[100%] md:w-[70%] bg-white relative z-30'} style={{ minHeight: `calc(100vh - ${navbarHeight} - ${footerHeight})` }}>
+                <div className={darkMode ? 'text-white' : 'text-black'}><h1 className='font-bold text-xl text-center py-2'>Student Hacks</h1></div>
+                    <div className='flex flex-col gap-5 absolute bottom-4 w-full'>
+                        
+                        <div className='chatbox'>
+                            <div className={darkMode ? 'chat-log bg-black' : 'chat-log bg-[white] overflow-y-auto h-full'} style={{maxHeight:'70vh'}}>
+                                {chatLog.map((message, index) => (
+                                    <ChatMessage key={index} message={message} />
+                                ))}
 
+                            </div>
                         </div>
+                        <form onSubmit={handleSubmit} className='flex justify-center w-full items-center'>
+                            <div className='w-[80%] flex items-center' style={{ border: '2px solid gray', borderRadius: '15px' }}>
+                                <input
+                                    type='text'
+                                    rows='1'
+                                    value={searchVal ? searchVal : searchVal && cvSearchVal ? cvSearchVal : input}
+                                    onChange={(e) => setInput(e.target.value)}
+                                    style={{ backgroundColor: 'transparent', padding: '0px 10px 0px 10px', width: '100%', height: '40px', borderRadius: '10px', outline: 'none', }}
+                                />
+                                <div className='cursor-pointer px-2 flex justify-center'><button type='submit'><MdSend color={darkMode ? 'white' : 'black'} size='1.6rem' /></button></div>
+                            </div>
+                        </form>
                     </div>
-                    <form onSubmit={handleSubmit} className='flex justify-center absolute bottom-10 w-full items-center'>
-                        <div className='w-[80%] flex items-center' style={{ border: '2px solid gray', borderRadius: '15px' }}>
-                            <input
-                                type='text'
-                                rows='1'
-                                value={searchVal ? searchVal : searchVal && cvSearchVal ? cvSearchVal : input}
-                                onChange={(e) => setInput(e.target.value)}
-                                style={{ backgroundColor: 'transparent', padding: '0px 10px 0px 10px', width: '100%', height: '40px', borderRadius: '10px', outline: 'none', }}
-                            />
-                            <div className='cursor-pointer px-2 flex justify-center'><button type='submit'><MdSend color={darkMode ? 'white' : 'black'} size='1.6rem' /></button></div>
-                        </div>
-                    </form>
                 </div>
             </div>
         </>
@@ -108,17 +113,17 @@ const ChatMessage = ({ message }) => {
 
 
     return (
-        <div className='odd:flex justify-end bg-[#9869e9] text-white even:bg-[#919191] even:text-[black] my-1 rounded-xl'>
-                <div className={`chat-message ${message.user === 'gpt' && 'chatgpt'}`}>
-                    <div className='chat-message-center'>
-                        <div className={`avater ${message.user === 'gpt' && 'chatgpt'}`}>
+        <div className={`${message.user === 'gpt' ? 'flex justify-start my-1 rounded-xl' : 'flex justify-end my-1 rounded-xl'}`}>
+            <div className={`chat-message ${message.user === 'gpt' && 'chatgpt'}`}>
+                <div className='chat-message-center'>
+                    <div className={`avater ${message.user === 'gpt' && 'chatgpt'}`}>
 
-                        </div>
-                        <div className='message'>
-                            {message.message}
-                        </div>
+                    </div>
+                    <div className='message'>
+                        {message.message}
                     </div>
                 </div>
+            </div>
         </div>
     )
 }
