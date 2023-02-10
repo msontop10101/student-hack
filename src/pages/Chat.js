@@ -76,12 +76,12 @@ const Chat = () => {
                         </ul>
                     </div>
                 </div>
-                <div className={darkMode ? 'w-[100%] md:w-[70%] bg-black relative z-30' : 'w-[100%] md:w-[70%] bg-white relative z-30'} style={{ minHeight: `calc(100vh - ${navbarHeight} - ${footerHeight})` }}>
+                <div className={darkMode ? 'w-[100%] md:w-[70%] bg-black relative z-30' : 'w-[100%] md:w-[70%] bg-white relative z-30'} style={{ height: `calc(100vh - ${navbarHeight} - ${footerHeight})` }}>
                 <div className={darkMode ? 'text-white' : 'text-black'}><h1 className='font-bold text-xl text-center py-2'>Student Hacks</h1></div>
                     <div className='flex flex-col gap-5 absolute bottom-4 w-full'>
                         
                         <div className='chatbox'>
-                            <div className={darkMode ? 'chat-log bg-black' : 'chat-log bg-[white] overflow-y-auto h-full'} style={{maxHeight:'70vh'}}>
+                            <div className={darkMode ? 'chat-log bg-black' : 'chat-log bg-white overflow-y-auto'} style={{maxHeight:'60vh'}}>
                                 {chatLog.map((message, index) => (
                                     <ChatMessage key={index} message={message} />
                                 ))}
