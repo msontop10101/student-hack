@@ -140,7 +140,7 @@ const Chatt = () => {
                                     rows='1'
                                     value={ searchVal ? searchVal : searchVal2 ? searchVal2 : input}
                                     onChange={(e) => setInput(e.target.value)}
-                                    style={{ backgroundColor: 'transparent', padding: '0px 10px 0px 10px', width: '100%', height: '40px', borderRadius: '10px', outline: 'none', }}
+                                    style={{ backgroundColor: 'transparent', padding: '0px 10px 0px 10px', width: '100%', height: '40px', borderRadius: '10px', outline: 'none', color:`${darkMode ? 'white': 'black'}` }}
                                 />
                                 <div className='cursor-pointer px-2 flex justify-center'><button type='submit'><MdSend color={darkMode ? 'white' : 'black'} size='1.6rem' /></button></div>
                             </div>
