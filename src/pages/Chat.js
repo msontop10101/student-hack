@@ -109,7 +109,7 @@ const Chat = () => {
                     </div>
                     <div class='px-2 py-6' style={{ borderTop: '2px solid black' }}>
                         <ul class='flex flex-col gap-2 chat'>
-                            <li class='flex items-center gap-2'><RiDeleteBin6Line size='1.5em' onClick={() => setChatLog([])} /><p>Clear conversation</p></li>
+                            <li class='flex items-center gap-2'><RiDeleteBin6Line size='1.5em' onClick={() => setChatLog([ ])} /><p>Clear conversation</p></li>
                             <li class='flex items-center gap-2' onClick={() => setDarkMode(!darkMode)}>{darkMode ? <CiLight size='1.5em' /> : <BsMoon size='1.5em' />}<p>{darkMode ? 'Light Mode' : 'Dark Mode'}</p></li>
                             <li class='flex items-center gap-2'><FiExternalLink size='1.5em' /><p>FAQ</p></li>
                             <li class='flex items-center gap-2'><MdOutlineLogout size='1.5em' /><p>Logout</p></li>
@@ -121,7 +121,7 @@ const Chat = () => {
                     <div className='flex flex-col gap-5 absolute bottom-4 w-full'>
                         
                         <div className='chatbox'>
-                            <div className={darkMode ? 'chat-log bg-black' : 'chat-log bg-white overflow-y-auto'} style={{maxHeight:'60vh'}}>
+                            <div className={darkMode ? 'chat-log bg-black overflow-y-auto' : 'chat-log bg-white overflow-y-auto'} style={{maxHeight:'60vh'}}>
                                 {chatLog.map((message, index) => (
                                     <ChatMessage key={index} message={message} />
                                 ))}
