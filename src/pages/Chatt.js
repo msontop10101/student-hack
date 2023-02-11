@@ -12,7 +12,7 @@ import { SearchValue2Context } from '../App';
 import { SendContext } from '../App';
 import { SendContext2 } from '../App';
  
-const Chat = () => {
+const Chatt = () => {
 
     const navbarHeight = '63px'
     const footerHeight = '84px'
@@ -123,11 +123,14 @@ const Chat = () => {
                     <div className='flex flex-col gap-5 absolute bottom-4 w-full'>
                         
                         <div className='chatbox'>
-                            <div className={darkMode ? 'chat-log bg-black overflow-y-auto' : 'chat-log bg-white overflow-y-auto'} style={{maxHeight:'60vh'}}>
+                            <div className={darkMode ? 'chat-log bg-black' : 'chat-log bg-white relative'} style={{maxHeight:'70vh'}}>
+                                <div className='h-full overflow-y-scroll'>
                                 {chatLog.map((message, index) => (
                                     <ChatMessage key={index} message={message} />
                                 ))}
                                 <div ref={bottomRef} />
+                                </div>
+                                
                             </div>
                         </div>
                         <form onSubmit={handleSubmit} className='flex justify-center w-full items-center'>
@@ -170,5 +173,5 @@ const ChatMessage = ({ message }) => {
     )
 }
 
-export default Chat;
+export default Chatt;
 
