@@ -7,10 +7,9 @@ import { FiExternalLink } from 'react-icons/fi'
 import { MdOutlineLogout, MdSend } from 'react-icons/md'
 import { CiLight } from 'react-icons/ci'
 import { useAuthContext } from '../context/auth/auth'
-import { Navigate } from 'react-router-dom'
 import { SearchValueContext } from '../App';
 import { CvValueContext } from '../App';
-import axios from 'axios';
+import { SendContext } from '../App';
  
 const Chat = () => {
 
@@ -19,6 +18,7 @@ const Chat = () => {
     const bottomRef = useRef(null);
     const val = useContext(SearchValueContext)
     const cvVal = useContext(CvValueContext)
+    const submitted = useContext(SendContext)
     const [input, setInput] = useState('')
     const [darkMode, setDarkMode] = useState(false)
     const [searchVal, setSearchVal] = useState(val)
@@ -49,7 +49,29 @@ const Chat = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
+            body: JSON.stringify({ 
+                message, //: messages
+            })
+        });
+        const data = await response.json();
+        setChatLog([...chatLogNew, { user: 'gpt', message: `${data.message}` }])
+        console.log(data.message)
+        console.log(data)
+    }
+    async function handleSearchSubmit() {
+        let chatLogNew = [...chatLog, { user: 'me', message: `${searchVal ? searchVal : cvSearchVal ? cvSearchVal : input}` }]
+        const message = input;
+        setInput("")
+        setSearchVal("")
+        setCvSearchVal('')
+        setChatLog(chatLogNew)
+        // const messages = chatLogNew.map((message) => message.message).join('')
+        const response = await fetch('https://student-chat.onrender.com/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 
                 message, //: messages
             })
         });
@@ -63,6 +85,13 @@ const Chat = () => {
         // 👇️ scroll to bottom every time messages change
         bottomRef.current?.scrollIntoView({behavior: 'smooth'});
       }, [chatLog]);
+
+    useEffect(() => {
+        submitted && handleSearchSubmit()
+    },[submitted])
+
+
+    
 
 
     return (

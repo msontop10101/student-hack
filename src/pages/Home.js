@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../App.css'
 import alert from '../assets/alert.png'
 import { FaSearch } from 'react-icons/fa'
@@ -7,15 +7,31 @@ import Options from '../components/Options'
 import { Niveau, Matière } from '../data'
 import CookieBanner from '../components/CookieBanner'
 import { posthog } from 'posthog-js';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
-const Home = ({ setSearchValue, setLevel, setSubject, setCvValue }) => {
+const Home = ({ setSearchValue, setLevel, setSubject, setCvValue, setSubmitted }) => {
   const [selectedOptions1, setSelectedOptions1] = useState('')
   const [selectedOptions2, setSelectedOptions2] = useState('')
   const [searchVal, setSearchVal] = useState('')
   const [cvVal, setCvVal] = useState('')
-  setLevel(selectedOptions1)
+  const [sub, setSub] = useState(false)
+  setLevel(selectedOptions1) 
   setSubject(selectedOptions2)
+  setSubmitted(sub)
+
+  function handleClick(){
+    setSearchValue(searchVal)
+    searchVal !== '' && setSub(true)
+  }
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    sub && navigate('/chat')
+  }, [sub])
+  
+
+  
   
 
   return (
@@ -27,7 +43,7 @@ const Home = ({ setSearchValue, setLevel, setSubject, setCvValue }) => {
       <div class='flex flex-col md:flex-row gap-4 justify-center mt-4 items-center'>
         <FaSearch size='2em' class='hidden md:block'/>
         <input value={searchVal} onChange={(e) => setSearchVal(e.target.value)} style={{borderRadius: '20px', border:'2px solid black' ,minWidth: '40%'}} class="py-2 px-8" placeholder="Ecris le sujet d'un exercice, une consigne, ou un extrait et laisse la magie opérer..."/>
-        <div><Link to='/chat'><button type='submit' onClick={() => setSearchValue(searchVal)}><img src={alert} width={30} height={30} alt='alert'/></button></Link></div>
+        <div><button type='submit' onClick={handleClick}><img src={alert} width={30} height={30} alt='alert'/></button></div>
 
         <Options title={selectedOptions1 === '' ? 'Niveau' : selectedOptions1}>
           {Niveau.map((data) => 
