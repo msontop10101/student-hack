@@ -37,7 +37,8 @@ const Chat = () => {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        let chatLogNew = [...chatLog, { user: 'me', message: `${searchVal ? searchVal : cvSearchVal ? cvSearchVal : input}` }]
+        if(input !== ""){
+            let chatLogNew = [...chatLog, { user: 'me', message: `${searchVal ? searchVal : cvSearchVal ? cvSearchVal : input}` }]
         const message = input;
         setInput("")
         setSearchVal("")
@@ -57,7 +58,11 @@ const Chat = () => {
         setChatLog([...chatLogNew, { user: 'gpt', message: `${data.message}` }])
         console.log(data.message)
         console.log(data)
+        }
+        
     }
+
+
     async function handleSearchSubmit() {
         let chatLogNew = [...chatLog, { user: 'me', message: `${searchVal ? searchVal : cvSearchVal ? cvSearchVal : input}` }]
         const message = input;
