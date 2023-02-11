@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef, useEffect } from 'react';
 import '../App.css'
 import { FaPlus } from 'react-icons/fa'
 import { RiDeleteBin6Line } from 'react-icons/ri'
@@ -11,11 +11,12 @@ import { Navigate } from 'react-router-dom'
 import { SearchValueContext } from '../App';
 import { CvValueContext } from '../App';
 import axios from 'axios';
-
+ 
 const Chat = () => {
 
     const navbarHeight = '63px'
     const footerHeight = '84px'
+    const bottomRef = useRef(null);
     const val = useContext(SearchValueContext)
     const cvVal = useContext(CvValueContext)
     const [input, setInput] = useState('')
@@ -31,7 +32,7 @@ const Chat = () => {
         // {
         //     user: 'gpt',
         //     message: 'How can i help you?1111111'
-        // }
+        // } 
     ])
 
     async function handleSubmit(e) {
@@ -57,6 +58,11 @@ const Chat = () => {
         console.log(data.message)
         console.log(data)
     }
+
+    useEffect(() => {
+        // 👇️ scroll to bottom every time messages change
+        bottomRef.current?.scrollIntoView({behavior: 'smooth'});
+      }, [chatLog]);
 
 
     return (
@@ -85,7 +91,7 @@ const Chat = () => {
                                 {chatLog.map((message, index) => (
                                     <ChatMessage key={index} message={message} />
                                 ))}
-
+                                <div ref={bottomRef} />
                             </div>
                         </div>
                         <form onSubmit={handleSubmit} className='flex justify-center w-full items-center'>
