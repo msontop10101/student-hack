@@ -11,29 +11,32 @@ import Signup from './pages/Signup';
 import Chat from './pages/Chat';
 
 export const SearchValueContext = React.createContext()
-export const CvValueContext = React.createContext()
 export const SendContext = React.createContext()
+export const SearchValue2Context = React.createContext()
+export const SendContext2 = React.createContext()
 
 
 
 const App = () => {
   const [searchValue, setSearchValue] = useState("")
+  const [searchValue2, setSearchValue2] = useState("")
   const [level, setLevel] = useState('')
   const [subject, setSubject] = useState('')
-  const [cvValue, setCvValue] = useState('')
   const [submitted, setSubmitted ] = useState()
-  // console.log(submitted)
+  const [submitted2, setSubmitted2] = useState()
+  // console.log(cvValue)
 
   return (
     <>
       <SearchValueContext.Provider value={searchValue && level && subject ? searchValue + ' ' + 'dans' + ' ' + level + ' ' + 'sous' + ' ' + subject :
         searchValue && level ? searchValue + ' ' + 'dans' + ' ' + level :
           searchValue && subject ? searchValue + ' ' + 'sous' + ' ' + subject : searchValue}>
-        <CvValueContext.Provider value={cvValue}>
         <SendContext.Provider value={submitted}>
-        <Navigation />
+        <SearchValue2Context.Provider value={searchValue2}>
+          <SendContext2.Provider value={submitted2}>
+          <Navigation />
         <Routes>
-          <Route path='/' element={<Home setSearchValue={setSearchValue} setLevel={setLevel} setSubject={setSubject} setCvValue={setCvValue} setSubmitted={setSubmitted}/>}>Home</Route>
+          <Route path='/' element={<Home setSearchValue={setSearchValue} setLevel={setLevel} setSubject={setSubject} setSearchValue2={setSearchValue2} setSubmitted={setSubmitted} setSubmitted2={setSubmitted2}/>}>Home</Route>
           <Route path='/qui' element={<Qui />}>Qui Sommes Nous?</Route>
           <Route path='/faq' element={<Faq />}>FAQ</Route>
           <Route path='/contact' element={<Contact />}>Contact</Route>
@@ -42,8 +45,9 @@ const App = () => {
           <Route path='/chat' element={<Chat />}>Chat</Route>
         </Routes>
         <Footer />
+          </SendContext2.Provider>
+        </SearchValue2Context.Provider>
         </SendContext.Provider>
-        </CvValueContext.Provider>
       </SearchValueContext.Provider>
     </>
   )

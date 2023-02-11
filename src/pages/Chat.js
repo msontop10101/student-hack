@@ -8,8 +8,9 @@ import { MdOutlineLogout, MdSend } from 'react-icons/md'
 import { CiLight } from 'react-icons/ci'
 import { useAuthContext } from '../context/auth/auth'
 import { SearchValueContext } from '../App';
-import { CvValueContext } from '../App';
+import { SearchValue2Context } from '../App';
 import { SendContext } from '../App';
+import { SendContext2 } from '../App';
  
 const Chat = () => {
 
@@ -17,12 +18,13 @@ const Chat = () => {
     const footerHeight = '84px'
     const bottomRef = useRef(null);
     const val = useContext(SearchValueContext)
-    const cvVal = useContext(CvValueContext)
+    const val2 = useContext(SearchValue2Context)
     const submitted = useContext(SendContext)
+    const submitted2 = useContext(SendContext2)
     const [input, setInput] = useState('')
     const [darkMode, setDarkMode] = useState(false)
     const [searchVal, setSearchVal] = useState(val)
-    const [cvSearchVal, setCvSearchVal] = useState(cvVal)
+    const [searchVal2, setSearchVal2] = useState(val2)
     const { isAuth } = useAuthContext()
     const [chatLog, setChatLog] = useState([
         // {
@@ -34,15 +36,15 @@ const Chat = () => {
         //     message: 'How can i help you?1111111'
         // } 
     ])
-
+    console.log(searchVal2)
     async function handleSubmit(e) {
         e.preventDefault();
         if(input !== ""){
-            let chatLogNew = [...chatLog, { user: 'me', message: `${searchVal ? searchVal : cvSearchVal ? cvSearchVal : input}` }]
+        let chatLogNew = [...chatLog, { user: 'me', message: `${searchVal ? searchVal : searchVal2 ? searchVal2 : input}` }]
         const message = input;
         setInput("")
         setSearchVal("")
-        setCvSearchVal('')
+        setSearchVal2('')
         setChatLog(chatLogNew)
         // const messages = chatLogNew.map((message) => message.message).join('')
         const response = await fetch('https://student-chat.onrender.com/', {
@@ -64,11 +66,11 @@ const Chat = () => {
 
 
     async function handleSearchSubmit() {
-        let chatLogNew = [...chatLog, { user: 'me', message: `${searchVal ? searchVal : cvSearchVal ? cvSearchVal : input}` }]
+        let chatLogNew = [...chatLog, { user: 'me', message: `${searchVal ? searchVal : searchVal2 ? searchVal2 : input}` }]
         const message = input;
         setInput("")
         setSearchVal("")
-        setCvSearchVal('')
+        setSearchVal2('')
         setChatLog(chatLogNew)
         // const messages = chatLogNew.map((message) => message.message).join('')
         const response = await fetch('https://student-chat.onrender.com/', {
@@ -93,6 +95,7 @@ const Chat = () => {
 
     useEffect(() => {
         submitted && handleSearchSubmit()
+        submitted2 && handleSearchSubmit()
     },[submitted])
 
 
@@ -101,11 +104,10 @@ const Chat = () => {
 
     return (
         <>
-            {/* {!isAuth ? <Navigate to={'/login'} /> : null} */}
             <div className='flex'>
                 <div class='w-[30%] hidden md:flex bg-[#919191] flex-col justify-between'>
                     <div class='p-2' style={{ borderBottom: '2px solid black' }}>
-                        <div class='p-3 border-2 rounded-md border-[#919191] flex items-center gap-5 cursor-pointer'><FaPlus /><p>New chat</p></div>
+                        <div class='p-3 border-2 rounded-md border-[#919191] flex items-center gap-5 cursor-pointer'><FaPlus onClick={() => setChatLog([ ])} /><p>New chat</p></div>
                     </div>
                     <div class='px-2 py-6' style={{ borderTop: '2px solid black' }}>
                         <ul class='flex flex-col gap-2 chat'>
@@ -133,7 +135,7 @@ const Chat = () => {
                                 <input
                                     type='text'
                                     rows='1'
-                                    value={searchVal ? searchVal : searchVal && cvSearchVal ? cvSearchVal : input}
+                                    value={ searchVal ? searchVal : searchVal2 ? searchVal2 : input}
                                     onChange={(e) => setInput(e.target.value)}
                                     style={{ backgroundColor: 'transparent', padding: '0px 10px 0px 10px', width: '100%', height: '40px', borderRadius: '10px', outline: 'none', }}
                                 />

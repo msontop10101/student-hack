@@ -7,29 +7,37 @@ import Options from '../components/Options'
 import { Niveau, Matière } from '../data'
 import CookieBanner from '../components/CookieBanner'
 import { posthog } from 'posthog-js';
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-const Home = ({ setSearchValue, setLevel, setSubject, setCvValue, setSubmitted }) => {
+const Home = ({ setSearchValue, setLevel, setSubject, setSearchValue2, setSubmitted, setSubmitted2 }) => {
   const [selectedOptions1, setSelectedOptions1] = useState('')
   const [selectedOptions2, setSelectedOptions2] = useState('')
   const [searchVal, setSearchVal] = useState('')
-  const [cvVal, setCvVal] = useState('')
+  const [searchVal2, setSearchVal2] = useState('')
   const [sub, setSub] = useState(false)
+  const [sub2, setSub2] = useState(false)
   setLevel(selectedOptions1) 
   setSubject(selectedOptions2)
   setSubmitted(sub)
+  setSubmitted2(sub2)
 
   function handleClick(){
     setSearchValue(searchVal)
     searchVal !== '' && setSub(true)
   }
 
+  function handleClick2(){
+    setSearchValue2(searchVal2)
+    searchVal2 !== '' && setSub2(true)
+  }
+
   const navigate = useNavigate()
 
   useEffect(() => {
     sub && navigate('/chat')
-  }, [sub])
-  
+    sub2 && navigate('/chat')
+  }, [sub, sub2, navigate])
+
 
   
   
@@ -87,8 +95,8 @@ const Home = ({ setSearchValue, setLevel, setSubject, setCvValue, setSubmitted }
       <div class='flex flex-col md:flex-row gap-4 justify-center mt-4 items-center'>
 
         <FaSearch size='2em' class='hidden md:block'/>
-        <input value={cvVal} onChange={(e) => setCvVal(e.target.value)} style={{borderRadius: '20px', border:'2px solid black' ,minWidth: '40%'}} class="py-2 px-8" placeholder="Décrivez vous, ainsi que votre parcours et laisser la magie opérer"/>
-        <div><Link to='/chat'><button type='submit' onClick={() => setCvValue(cvVal)}><img src={alert} width={30} height={30} alt='alert'/></button></Link></div>
+        <input value={searchVal2} onChange={(e) => setSearchVal2(e.target.value)} style={{borderRadius: '20px', border:'2px solid black' ,minWidth: '40%'}} class="py-2 px-8" placeholder="Décrivez vous, ainsi que votre parcours et laisser la magie opérer"/>
+        <div><button type='submit' onClick={handleClick2}><img src={alert} width={30} height={30} alt='alert'/></button></div>
         </div>
       </div>
     </div>
