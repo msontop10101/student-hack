@@ -36,6 +36,8 @@ const Chatt = () => {
         //     message: 'How can i help you?1111111'
         // } 
     ])
+    const [loading, setLoading] = useState(false)
+    console.log(loading)
     // console.log(searchVal2)
     async function handleSubmit(e) {
         e.preventDefault();
@@ -46,6 +48,7 @@ const Chatt = () => {
         setSearchVal("")
         setSearchVal2('')
         setChatLog(chatLogNew)
+        setLoading(true)
         // const messages = chatLogNew.map((message) => message.message).join('')
         const response = await fetch('https://student-chat.onrender.com/', {
             method: 'POST',
@@ -60,6 +63,7 @@ const Chatt = () => {
         setChatLog([...chatLogNew, { user: 'gpt', message: `${data.message}` }])
         console.log(data.message)
         console.log(data)
+        setLoading(false)
         }
         
     }
