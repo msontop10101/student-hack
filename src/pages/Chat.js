@@ -70,8 +70,9 @@ const Chatt = () => {
 
 
     async function handleSearchSubmit() {
+        // e.preventDefault()
         let chatLogNew = [...chatLog, { user: 'me', message: `${searchVal ? searchVal : searchVal2 ? searchVal2 : input}` }]
-        const message = input;
+        const message = searchVal ? searchVal : searchVal2 ? searchVal2 : input;
         setInput("")
         setSearchVal("")
         setSearchVal2('')
