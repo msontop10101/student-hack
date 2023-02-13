@@ -44,6 +44,7 @@ const Chatt = () => {
         if(input !== ""){
         let chatLogNew = [...chatLog, { user: 'me', message: `${input}` }]
         const message = input;
+        console.log(message)
         setInput("")
         setSearchVal("")
         setSearchVal2('')
@@ -140,14 +141,13 @@ const Chatt = () => {
             <div className='flex'>
                 <div class='w-[30%] hidden md:flex bg-[#919191] flex-col justify-between'>
                     <div class='p-2' style={{ borderBottom: '2px solid black' }}>
-                        <div class='p-3 border-2 rounded-md border-[#919191] flex items-center gap-5 cursor-pointer'><FaPlus onClick={() => setChatLog([ ])} /><p>New chat</p></div>
+                        <div class='p-3 border-2 rounded-md border-[#919191] flex items-center gap-5 cursor-pointer'  onClick={() => {setChatLog([ ]); setLoading(false)}}><FaPlus /><p>New chat</p></div>
                     </div>
                     <div class='px-2 py-6' style={{ borderTop: '2px solid black' }}>
                         <ul class='flex flex-col gap-2 chat'>
-                            <li class='flex items-center gap-2'><RiDeleteBin6Line size='1.5em' onClick={() => setChatLog([ ])} /><p>Clear conversation</p></li>
+                            <li class='flex items-center gap-2' onClick={() => {setChatLog([ ]); setLoading(false)}}><RiDeleteBin6Line size='1.5em' /><p>Clear conversation</p></li>
                             <li class='flex items-center gap-2' onClick={() => setDarkMode(!darkMode)}>{darkMode ? <CiLight size='1.5em' /> : <BsMoon size='1.5em' />}<p>{darkMode ? 'Light Mode' : 'Dark Mode'}</p></li>
                             <li class='flex items-center gap-2'><FiExternalLink size='1.5em' /><p>FAQ</p></li>
-                            <li class='flex items-center gap-2'><MdOutlineLogout size='1.5em' /><p>Logout</p></li>
                         </ul>
                     </div>
                 </div>
@@ -157,7 +157,7 @@ const Chatt = () => {
                         
                         <div className='chatbox'>
                             <div className={darkMode ? 'chat-log bg-black' : 'chat-log bg-white relative'} style={{maxHeight:'70vh'}}>
-                                <div className='h-full overflow-y-scroll'>
+                                <div className='h-full overflow-y-auto'>
                                 {chatLog.map((message, index) => (
                                     <ChatMessage key={index} message={message} />
                                 ))}
