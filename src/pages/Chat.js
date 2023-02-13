@@ -5,6 +5,7 @@ import { RiDeleteBin6Line } from 'react-icons/ri'
 import { BsMoon } from 'react-icons/bs'
 import { FiExternalLink } from 'react-icons/fi'
 import { MdOutlineLogout, MdSend } from 'react-icons/md'
+import { ThreeDots } from 'react-loader-spinner'
 import { CiLight } from 'react-icons/ci'
 import { useAuthContext } from '../context/auth/auth'
 import { SearchValueContext } from '../App';
@@ -37,12 +38,11 @@ const Chatt = () => {
         // } 
     ])
     const [loading, setLoading] = useState(false)
-    console.log(loading)
     // console.log(searchVal2)
     async function handleSubmit(e) {
         e.preventDefault();
         if(input !== ""){
-        let chatLogNew = [...chatLog, { user: 'me', message: `${searchVal ? searchVal : searchVal2 ? searchVal2 : input}` }]
+        let chatLogNew = [...chatLog, { user: 'me', message: `${input}` }]
         const message = input;
         setInput("")
         setSearchVal("")
@@ -72,7 +72,7 @@ const Chatt = () => {
     async function handleSearchSubmit() {
         // e.preventDefault()
         let chatLogNew = [...chatLog, { user: 'me', message: `${searchVal}` }]
-        const message = searchVal ? searchVal : searchVal2 ? searchVal2 : input;
+        const message = searchVal;
         setInput("")
         setSearchVal("")
         setSearchVal2('')
@@ -157,6 +157,16 @@ const Chatt = () => {
                                 {chatLog.map((message, index) => (
                                     <ChatMessage key={index} message={message} />
                                 ))}
+                                {loading && <div><ThreeDots
+                                        height="80"
+                                        width="80"
+                                        radius="9"
+                                        color="#919191"
+                                        ariaLabel="three-dots-loading"
+                                        wrapperStyle={{}}
+                                        wrapperClassName=""
+                                        visible={true}
+                                    /></div>}
                                 <div ref={bottomRef} />
                                 </div>
                                 
