@@ -71,8 +71,32 @@ const Chatt = () => {
 
     async function handleSearchSubmit() {
         // e.preventDefault()
-        let chatLogNew = [...chatLog, { user: 'me', message: `${searchVal ? searchVal : searchVal2 ? searchVal2 : input}` }]
+        let chatLogNew = [...chatLog, { user: 'me', message: `${searchVal}` }]
         const message = searchVal ? searchVal : searchVal2 ? searchVal2 : input;
+        setInput("")
+        setSearchVal("")
+        setSearchVal2('')
+        setChatLog(chatLogNew)
+        // const messages = chatLogNew.map((message) => message.message).join('')
+        const response = await fetch('https://student-chat.onrender.com/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 
+                message, //: messages
+            })
+        });
+        const data = await response.json();
+        setChatLog([...chatLogNew, { user: 'gpt', message: `${data.message}` }])
+        console.log(data.message)
+        console.log(data)
+    }
+
+    async function handleSearchSubmit2() {
+        // e.preventDefault()
+        let chatLogNew = [...chatLog, { user: 'me', message: `${searchVal2}` }]
+        const message = searchVal2;
         setInput("")
         setSearchVal("")
         setSearchVal2('')
@@ -100,7 +124,7 @@ const Chatt = () => {
 
     useEffect(() => {
         submitted && handleSearchSubmit()
-        submitted2 && handleSearchSubmit()
+        submitted2 && handleSearchSubmit2()
     },[submitted])
 
 
