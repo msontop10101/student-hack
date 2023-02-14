@@ -204,9 +204,6 @@ const ChatMessage = ({ message }) => {
         <div className={`${message.user === 'gpt' ? 'flex justify-start my-1 rounded-xl' : 'flex justify-end my-1 rounded-xl'}`}>
             <div className={`chat-message ${message.user === 'gpt' && 'chatgpt'}`}>
                 <div className='chat-message-center'>
-                    <div className={`avater ${message.user === 'gpt' && 'chatgpt'}`}>
-
-                    </div>
                     <div className='message'>
                         {message.message}
                     </div>
