@@ -106,7 +106,7 @@ const Chatt = () => {
         setChatLog(chatLogNew)
         setLoading(true)
         // const messages = chatLogNew.map((message) => message.message).join('')
-        const response = await fetch('https://student-chat.onrender.com/', {
+        const response = await fetch('https://miro-app.herokuapp.com/api/chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -156,7 +156,7 @@ const Chatt = () => {
                     <div className='flex flex-col gap-5 absolute bottom-4 w-full'>
                         
                         <div className='chatbox'>
-                            <div className={darkMode ? 'chat-log bg-black' : 'chat-log bg-white relative'} style={{maxHeight:'70vh'}}>
+                            <div className={darkMode ? 'chat-log bg-black' : 'chat-log bg-white relative h-[70vh] md:h-[60vh]'}>
                                 <div className='h-full overflow-y-auto'>
                                 {chatLog.map((message, index) => (
                                     <ChatMessage key={index} message={message} />
