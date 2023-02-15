@@ -125,7 +125,7 @@ const Chatt = () => {
     useEffect(() => {
         // 👇️ scroll to bottom every time messages change
         bottomRef.current?.scrollIntoView({behavior: 'smooth'});
-      }, [chatLog]);
+      }, [chatLog, input]);
 
     useEffect(() => {
         submitted && handleSearchSubmit()
