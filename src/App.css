@@ -135,7 +135,7 @@ body, html {
 .chatgpt {
   color: black;
   background-color: #919191;
-  width: 70%;
+  /* width: 70%; */
   border-radius: 10px;
   padding: 10px;
 }
